@@ -1,0 +1,55 @@
+
+@import '@c/globalcss/color.scss';
+.footer{
+  width: 100%;
+  position: absolute;
+  bottom: 6px;
+  ul{
+    display: flex;
+    width: 100%;
+    flex-wrap:wrap;
+    li{
+      border-top: $b_border;
+      text-align: center;
+      flex-grow: 1;
+      font-size: 1rem;
+      border-right: $b_border;
+      display: block;
+      line-height: 64px;
+      b{
+        color: $color_main;
+      }
+   }
+  }
+  ul li:nth-child(4){
+    flex-grow:4;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  ul li:nth-child(5){
+    border-right:none;
+    font-size: 12px;
+    a{
+      color:#fff;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .footer ul{
+    border-left: $b_border;
+    li:nth-child(5){
+      border-right: $b_border;
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  .footer ul{
+    li{
+      font-size: .8rem;
+    }
+    li:nth-child(4){
+      font-size: 1rem;
+    }
+  }
+}

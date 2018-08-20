@@ -1,0 +1,202 @@
+@import '@c/globalcss/color.scss';
+$msg_t_color: #055559;
+@mixin button {
+    display: block;
+    width: 160px;
+    line-height: 58px;
+    color: #1a1a1a;
+    background-color: #fff;
+    border-radius: 29px;
+    text-align: center;
+    cursor: pointer;     
+}
+
+.bubble{
+  font-size: 28px;
+  color:$color_main;
+  position: absolute;
+  top:0;
+  right: 0;
+  animation: popUp  0.5s linear forwards;
+  &::before{
+    content: url('../../images/bubble.png')
+  }
+}
+.showMsg{
+  opacity: 0;
+  transform: translateY(40px);
+  animation: msgUl .3s ease-out forwards;
+}
+
+.msgTitle{
+  strong{
+    color:$msg_t_color;
+    font-size: 1.4rem;
+  }
+  strong + span{
+    margin-left: 6px;
+    color:#0a7d83;
+    font-size: .8rem;
+  }
+  .msgLight{
+    color: $msg_t_color;
+    float: right;
+    margin-top: 6px;
+    a{
+      display: block;
+      width: 30px;
+      height: 22px;
+      float: left;
+      margin-top: -4px;
+      background: url('../../images/light.png') no-repeat center;
+    }
+  }
+}
+
+.message{
+  border: 1px solid #1ab0b8;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #aaf6fa;
+  color:#0a7d83;
+  padding: 12px;
+  margin: 4px 0 20px 0;
+}
+
+.msgCenter{
+    width: 540px;
+    height: calc(60vh + 20px);
+}
+
+.msgBox{
+  width: 540px;
+  box-sizing: border-box;
+  padding:24px 10px 60px 10px;
+  font-family: $font
+  li{
+      position: relative;
+  }
+}
+.putButton{
+    @include button();
+    position: fixed;
+    bottom: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.msgInput{
+    position: absolute;
+    bottom:-90px;
+    width: 100%;
+    input{
+        box-sizing: border-box;
+        border: 1px solid rgba(255,255,255,.6);
+        width: calc(100% - 176px);
+        height: 58px;
+        line-height: 58px;
+        background-color: #6978b9;
+        border-radius: 29px;
+        float: left;
+        padding-left: 18px;
+        color: #fff;
+        &:hover{
+            border-color:rgba(255,255,255,1)
+        }
+        &::-webkit-input-placeholder{
+            color:#fff
+        }
+        &::-moz-input-placeholder{
+            color:#fff
+        }
+        &::-o-input-placeholder{
+            color:#fff
+        }
+        &::-ms-input-placeholder{
+            color:#fff
+        }
+    }
+}
+
+.msgButton{
+    @include button() ;
+    float: right;
+}
+@keyframes popUp{
+    0%{
+        opacity: 0;
+        transform: translate3d(0,0,0)
+    }
+    25%{
+        opacity: .5;
+        transform: translate3d(0,-8px,0)
+    }
+    50%{
+        opacity: 1;
+        transform: translate3d(0,-16px,0)
+    }
+    75%{
+        opacity: 1;
+        transform: translate3d(0,-24px,0)
+    }
+    100%{
+        opacity: 0;
+        transform: translate3d(0,-32px,0)
+    }
+}
+
+@keyframes msgUl{
+    form{
+        opacity: 0;
+        transform: translateY(40px)
+    }to{
+        opacity: 1;
+        transform: translateY(0)        
+    }
+}
+@media screen and (min-width: 768px){
+    .msgBox{
+        padding: 24px 24px 60px 24px;
+    }
+    .message{
+        margin: 4px 0 26px 0
+    }
+    .msgTitle {
+        strong{
+            font-size: 22px;
+        }
+        strong + span{
+            font-size: 14px
+        }
+        .msgLight{
+            font-size: 14px;
+        }
+    }
+}
+@media screen and (max-width: 480px) {
+  .msgCenter{
+     width:96vw;
+     height: calc(50vh + 20px);
+  }
+  .msgBox{
+    width: 96vw;
+  }
+  .putButton{
+    width: 10rem;
+    bottom: -6rem;
+  }
+  .msgButton,.msgInput>input{
+      line-height: 4rem;
+      border-radius: 2rem;
+      height: 4rem;
+  }
+  .msgButton{
+      width: 10rem;
+  }
+  .msgInput{
+      bottom: -6rem;
+  }
+  .msgInput>input{
+      width: calc(100% - 11rem)
+  }
+}
