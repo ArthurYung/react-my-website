@@ -1,0 +1,29 @@
+
+.doll-clearfix{display:inline-block}
+.doll-clearfix::after{content:"";visibility:hidden;display:inline-block;font-size:0;clear:both;height:0}
+.doll-outer{display:table;margin:0 auto;height:100%}
+.doll-middle{display:table-cell;vertical-align:middle}
+.doll-main{position:relative;height:190px;margin:18px}
+@media (max-width:550px){.doll-main{-webkit-transform:scale(0.75);transform:scale(0.75)}}
+@media (max-width:440px){.doll-main{-webkit-transform:scale(0.5);transform:scale(0.5)}}
+.doll-buddha{position:relative;width:128px;height:190px;-webkit-animation:animUpDown 3s ease-in-out infinite;animation:animUpDown 3s ease-in-out infinite}
+.doll-buddha .doll-legs{position:absolute;bottom:0;left:0;width:128px;height:50px;border-radius:50px;background:#fad049}
+.doll-buddha .doll-tail{position:absolute;bottom:10px;left:15px;width:98px;height:82px;border-radius:38px;background:#fad049}
+.doll-buddha .doll-head{position:absolute;top:0px;left:2px;width:124px;height:124px;border-radius:124px;background:#fff2ea}
+.doll-buddha .doll-ears{position:absolute;bottom:28px;width:28px;height:28px;border-radius:28px;background:#fff2ea}
+.doll-buddha .doll-ears.doll-left{left:-10px}
+.doll-buddha .doll-ears.doll-right{right:-10px}
+.doll-buddha .doll-hand{position:absolute;bottom:25px;left:50%;width:34px;height:34px;border-radius:34px;background:#fff2ea;-webkit-transform:translateX(-50%);transform:translateX(-50%)}
+.doll-buddha .doll-mouth{position:absolute;bottom:25px;left:50%;width:16px;height:6px;margin-left:-12px;border:5px solid #f95f56;border-top:0;border-radius:0 0 20px 20px / 0 0 16px 16px}
+.doll-buddha .doll-circle{position:absolute;top:45px;left:50%;width:12px;height:12px;border-radius:12px;background:#f95f56;-webkit-transform:translateX(-50%);transform:translateX(-50%)}
+.doll-buddha .doll-eye{position:absolute;bottom:50px;width:10px;height:5px;border:6px solid #363635;border-bottom:0;border-radius:10px 10px 0 0 / 10px 10px 0 0}
+.doll-buddha .doll-eye.doll-left{left:25px}
+.doll-buddha .doll-eye.doll-right{right:25px}
+.doll-shadow{position:absolute;bottom:-40px;display:block;width:128px;height:50px;background:rgba(0,0,0,0.2);border-radius:50%;-webkit-animation:animShadow 3s ease-in-out infinite;animation:animShadow 3s ease-in-out infinite}
+@-webkit-keyframes animShadow{0%,100%{-webkit-transform:scale(1) rotateX(100deg);transform:scale(1) rotateX(100deg)}50%{-webkit-transform:scale(0.7) rotateX(100deg);transform:scale(0.7) rotateX(100deg)}}
+@keyframes animShadow{0%,100%{-webkit-transform:scale(1) rotateX(100deg);transform:scale(1) rotateX(100deg)}50%{-webkit-transform:scale(0.7) rotateX(100deg);transform:scale(0.7) rotateX(100deg)}}
+@-webkit-keyframes animUpDown{0%,100%{-webkit-transform:translateY(0);transform:translateY(0)}50%{-webkit-transform:translateY(-25px);transform:translateY(-25px)}}
+@keyframes animUpDown{0%,100%{-webkit-transform:translateY(0);transform:translateY(0)}50%{-webkit-transform:translateY(-25px);transform:translateY(-25px)}}
+.doll-main:hover .doll-buddha .doll-head{-webkit-animation:animTopBottom 0.25s infinite;animation:animTopBottom 0.25s infinite}
+@-webkit-keyframes animTopBottom{0%,100%{-webkit-transform:translateY(0);transform:translateY(0)}50%{-webkit-transform:translateY(-5px);transform:translateY(-5px)}}
+@keyframes animTopBottom{0%,100%{-webkit-transform:translateY(0);transform:translateY(0)}50%{-webkit-transform:translateY(-5px);transform:translateY(-5px)}}
