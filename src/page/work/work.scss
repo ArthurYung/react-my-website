@@ -1,0 +1,123 @@
+@mixin content {
+  content: '';
+  position: absolute;
+  display: block; 
+}
+
+.scroll{
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.figureBox{
+  position: relative;
+  z-index: 800;
+  display: flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  margin-top: 16px;
+  & > div{
+    margin-right: 60px
+  }
+}
+.codeBox{
+  padding-top: 36px;
+  position: relative;
+  z-index: 10;
+  &>span{
+    font-size:1.8rem;
+    padding: 4px 14px;
+    letter-spacing: 4px;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom:10px;
+    background-color: #101010
+  }
+  &>hr{
+    transform: scaleX(1.2);
+    margin-top: 30px
+  }
+}
+.more{
+  width: 180px;
+  margin-top:40px;
+  color:rgba(255,255,255,0.6);
+  font-weight: bold;
+  line-height: 46px;
+  transition: color .1s ease-out;
+  cursor: pointer;
+  .moreIcon{
+    display: block;
+    background-color: #8e89ec;
+    position: relative;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 12px;
+    &::before{
+      @include content();
+      width: 40px;
+      height: 40px;
+      top: 3px;
+      left: 3px;
+      background-color: #4456a7;
+      border-radius: 50%;
+      transform: scale(1);
+      transition: transform .1s ease-out;
+    }
+    i{
+      position: absolute;
+      &::before,&::after{
+        @include content();
+        width: 14px;
+        height: 4px;
+        border-radius: 2px;
+        background-color: #fbd214;
+        left: 18px;
+        transition: background-color .1s ease-out;
+      }
+      &::before{
+        transform: rotate(45deg);
+        top: 17px;
+      }
+      &::after{
+        transform: rotate(-45deg); 
+        top:25px;
+      }
+    }
+  }
+  &:hover{
+    color:rgba(255,255,255,1);
+    .moreIcon{
+      
+      &::before{
+        transform: scale(0);
+      }
+      i::before,i::after{
+        background-color:#fff
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .figureBox>div{
+    margin-right: 20px
+  }
+}
+@media screen and (max-width: 480px) {
+  .figureBox>div{
+    margin-right: 0
+  }
+  .scroll{
+    -webkit-overflow-scrolling: touch;
+  }
+  .more{
+    margin-bottom: 60px;
+  }
+}
+
+
