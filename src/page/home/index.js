@@ -51,7 +51,7 @@ export default class Home extends Component{
   } 
   setCookie(name,value){
         var exp = new Date();
-        exp.setTime(exp.getTime() + 5 * 60 * 1000);
+        exp.setTime(exp.getTime() + 7*24 * 3600 * 1000);
         document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
   }
   /**
