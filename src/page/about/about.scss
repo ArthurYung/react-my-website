@@ -61,6 +61,8 @@
 }
 
 .myfont{
+  position: relative;
+  height: calc(100% - 42px);
   img{
      display: block;
      position: absolute;
@@ -149,6 +151,37 @@
   }
 }
 
+.firends{
+  width: 100%;
+  padding: 24px 0;
+  a{
+    display: block;
+    position: relative;
+    width: 80%;
+    max-width: 210px;
+    margin: 12px auto;
+    line-height: 36px;
+    text-indent: 80px;
+    height: 36px;
+    border-radius: 18px;
+    background: #ffbcda;
+    color:#aa6584;
+    font-size: .8rem;
+    white-space:nowrap;
+    span{
+      display: block;
+      width: 80px;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #4e2a2a;
+      font-size: 1rem;
+      text-indent: 0;
+    }
+  }
+}
+
 // 自适应规则
 
 @media screen and (max-width: 960px) {
@@ -171,6 +204,12 @@
   }
   .phonto{
     flex: 1 0;
+    .myfont{
+      img{
+        width: auto;
+        height: 70%;
+      }
+    }
   }
   .introduce{
     flex: 3 0;

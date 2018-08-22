@@ -4,7 +4,7 @@ import Css from '../about.scss'
 import {aboutImg} from '@c/imgurls'
 import CityRun from './city'
 import MyLabel from './label'
-
+import Friends from './friends'
 /**
  * @name 页面各区域
  */
@@ -103,7 +103,7 @@ export function MyAdd(){
   return (
     <Pop  
       noClose={true}
-      title="地址"
+      title="Where"
       type="wathet"
       unmove={true}
     >
@@ -120,11 +120,11 @@ export function OurLink(){
   return (
     <Pop  
       noClose={true}
-      title="友情链接"
+      title="Friends"
       type="pink"
       unmove={true}
     >
-     <div>6</div> 
+     <Friends/>
     </Pop>
   )
 }
