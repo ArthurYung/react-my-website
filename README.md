@@ -7,8 +7,8 @@ So,自己写动画，自己写服务端，整就对了~
 ### 技术栈
 前端只用了React + Router,UI组件全手码。
 
-服务端用koa2 + mongodb写了几个接口用来登录和留言
--后台代码: [https://github.com/ChuckOu/koa2-myblog]
+服务端用koa2 + mongodb写了几个接口用来登录和留言。
+后台代码: [https://github.com/ChuckOu/koa2-myblog]
 
 ### 演示地址
 
