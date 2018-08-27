@@ -82,7 +82,7 @@ export default class Msgs extends Component{
     }).catch(err => console.log(err))
   }
   CheckTexts(str){
-    let _str = str.toString()
+    let _str = str.toString().replace(/<|>/g,' ')
     let reg = ''
     checkText.map(i => {
       reg = new RegExp(i,"g")

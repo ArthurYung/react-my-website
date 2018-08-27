@@ -23,7 +23,7 @@ export default class SginIn extends Component{
   // 邮箱地址请求
   getUser(dom){
     if(this.state.erro) return false; // 判断是否在执行错误提示的动画
-    const value = dom.value.toString()
+    const value = dom.value.toString().replace(/<|>/g,' ')
     if(!checkMail.test(value)) return this.upErro("请输入正确的邮箱地址!")  
     axios.get('u/getUser/', {
       params: {
@@ -52,7 +52,7 @@ export default class SginIn extends Component{
   // 获取用户名请求注册接口
   getName(dom){
     if(this.state.erro) return false;
-    const value = dom.value.toString()
+    const value = dom.value.toString().replace(/<|>/g,' ')
     if(!this.CheckTexts(value)) return this.upErro("禁止使用敏感词汇！")
      axios.post('u/saveUser/', {
          email: this.email,
