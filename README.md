@@ -1,6 +1,5 @@
 ## 我的个人小站
 > 支持PC/移动端
-- 后台代码: [https://github.com/ChuckOu/koa2-myblog]
 
 ### 写在前面
 一直想给自己设计一个酷炫的个人网站，恰好有时间可以尝试一下React。
@@ -9,6 +8,7 @@ So,自己写动画，自己写服务端，整就对了~
 前端只用了React + Router,UI组件全手码。
 
 服务端用koa2 + mongodb写了几个接口用来登录和留言
+- 后台代码: [https://github.com/ChuckOu/koa2-myblog]
 
 ### 演示地址
 
