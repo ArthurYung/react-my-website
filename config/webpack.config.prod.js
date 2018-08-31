@@ -211,7 +211,7 @@ module.exports = {
                   require.resolve(paths.appNodeModules + '/sass-loader'),
                 ],
             },extractTextPluginOptions)),
-            exclude:[paths.appSrc +'/components/globalcss',paths.appNodeModules]
+            include: paths.appSrc +'/page/'
           },
            {
             test: /\.(css|scss)$/,
@@ -255,7 +255,7 @@ module.exports = {
                   require.resolve(paths.appNodeModules + '/sass-loader'),
                 ],
             },extractTextPluginOptions)),
-            include:[paths.appSrc +'/components/globalcss',paths.appNodeModules]
+            include:[paths.appSrc +'/components/',paths.appNodeModules]
           },
 
 

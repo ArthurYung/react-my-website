@@ -11,7 +11,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
-
+ 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
 const publicPath = '/';
@@ -21,7 +21,7 @@ const publicPath = '/';
 const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
-console.log(paths.appSrc)
+
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -101,6 +101,7 @@ module.exports = {
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     ],
   },
+
   module: {
     strictExportPresence: true,
     rules: [
@@ -110,21 +111,6 @@ module.exports = {
 
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
-      {
-        test: /\.(js|jsx|mjs)$/,
-        enforce: 'pre',
-        use: [
-          {
-            options: {
-              formatter: eslintFormatter,
-              eslintPath: require.resolve('eslint'),
-              
-            },
-            loader: require.resolve('eslint-loader'),
-          },
-        ],
-        include: paths.appSrc,
-      },
       {
         // "oneOf" will traverse all following loaders until one will
         // match the requirements. When no loader matches it will fall
@@ -201,7 +187,7 @@ module.exports = {
               },
               require.resolve(paths.appNodeModules + '/sass-loader'),
             ],
-            exclude:[paths.appSrc +'/components/globalcss',paths.appNodeModules]
+            include: paths.appSrc + '/page/',
           },
           {
             test: /\.(css|scss)$/,
@@ -236,7 +222,7 @@ module.exports = {
               },
               require.resolve(paths.appNodeModules + '/sass-loader'),
             ],
-            include:[paths.appSrc +'/components/globalcss',paths.appNodeModules]
+            include:[paths.appSrc + '/components/',paths.appNodeModules]
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
