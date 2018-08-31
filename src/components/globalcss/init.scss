@@ -1,0 +1,38 @@
+body, figure, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; color:#1a1a1a} 
+body, button, input, select, textarea { font:16px/1.5, "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif; } 
+h1, h2, h3, h4, h5, h6{ font-size:100%; } 
+address, cite, dfn, em, var { font-style:normal; } 
+code, kbd, pre, samp { font-family:erikos,couriernew, courier, monospace; } 
+small{ font-size:12px; } 
+ul, ol { list-style:none; } 
+a { text-decoration:none; } 
+a:hover { text-decoration:underline; } 
+sup { vertical-align:text-top; } 
+sub{ vertical-align:text-bottom; } 
+legend { color:#000; } 
+fieldset, img { border:0; } 
+button, input, select, textarea { font-size:100%; } 
+table { border-collapse:collapse; border-spacing:0; }
+a,button{
+  cursor: pointer;
+  border: none;
+}
+span,a,button,li{
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -moz-user-focus: none;
+}
+*:focus { 
+          outline: none;
+         background-color: transparent;
+     }
+::selection{background:#000;color:#fff }
+::-moz-selection{background:#000;color:#fff }
+
+@font-face {
+    font-family: 'erikos';
+    src: url('./erikos.woff2') format('woff2'),
+         url('./erikos.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-size:67.5%;
+}

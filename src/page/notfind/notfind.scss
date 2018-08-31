@@ -1,0 +1,60 @@
+.notfind{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background-color: #efefef;
+  &>div{
+    background-color: #fff;
+    .title{
+      cursor: auto;
+      height: 42px;
+      &::after{
+        content: '';
+        display: block;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #000;
+        position: absolute;
+        left: 20px;
+        top: 18px;
+      }
+    }
+  }
+}
+.ErrText{
+  padding: 3rem;
+  white-space:nowrap;
+  width: 320px;
+  h1{
+    font-size: 5.4rem;
+  }
+  h3{
+    font-size: 2.2rem;
+    margin-top: 8px;
+    margin-bottom: 26px;
+  }
+  a{
+    font-size: 1.2rem;
+    color: #101010;
+    text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .ErrText{
+    width: auto;
+    h1{
+      font-size: 4rem;
+    }
+    h3{
+      font-size: 1.8rem;
+    }
+    a{
+      font-size: 1.1rem
+    }
+  }
+}

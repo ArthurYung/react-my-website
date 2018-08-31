@@ -1,0 +1,306 @@
+.aboutPage{
+  height: calc(100vh - 48px);
+  padding-top: 12px;
+  margin: 0 auto;
+  position: relative;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  display: flex;
+}
+.consMain{
+  flex: 4 0;
+  flex-direction: row;
+  flex-wrap:nowrap;
+  display: flex;
+}
+.introduce{
+  flex:2 1;
+  flex-direction: column;
+  flex-wrap:nowrap;
+  display: flex;      
+}
+.fontMain,.addMain{
+  flex:1 0;
+  flex-direction: column;
+  flex-wrap:nowrap; 
+  display: flex;      
+}
+.contact{
+  flex: 1 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+  padding: 0 0 12px 0;
+}
+.phonto,.myintro,.link{
+  flex: 2 0;
+  box-sizing: border-box;
+  margin: 0 6px 12px 6px;
+  position: relative;
+  &>div{
+    position: absolute;
+  }
+}
+.mail,.add{
+  flex: 1 0;
+  box-sizing: border-box;
+  margin: 0 6px 12px 6px;
+  position: relative;
+  &>div{
+    position: absolute;
+  }
+}
+.github,.weichart{
+  flex: 1 0;
+  box-sizing: border-box;
+  margin: 0 6px;
+  position: relative;
+  &>div{
+    position: absolute;
+  }
+}
+
+.myfont{
+  position: relative;
+  height: calc(100% - 42px);
+  img{
+     display: block;
+     position: absolute;
+     width: 60%;
+     top: 50%;
+     left: 50%;
+     transform: translate3d(-50%,-50%,0)
+  }
+}
+
+.img{
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  top: calc(12% + 36px);
+  img{
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+  }
+  &+h3{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top:calc(56% + 40px);
+    font-size: .87rem;
+  }
+}
+.linkIcon{
+  display: block;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  bottom: 1rem;
+  right: 1rem;
+  background:url("../../images/toLink.png") no-repeat center;
+}
+.addImg{
+  width: 100%;
+  height: calc(100% - 36px);
+  display: flex;
+  justify-content:center;
+  align-items:Center;
+  img{
+    max-width: 182px;
+    width: 80%
+  }
+}
+
+.city{
+  position: relative;
+  width: 100%;
+  height: calc(100% - 41px);
+  min-height: 300px;
+  .canvas{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: calc(100% - 20px);
+    z-index: 30;
+  }
+  .mylabel{
+    position: relative;
+    width: 100%;
+    height: calc(100% - 20px);
+    z-index: 20;
+  }
+}
+
+.cloud{
+  display: block;
+  position: absolute;
+  img{
+    position: absolute;
+    display: block;
+    width: 100%;
+    z-index: 20;
+    margin-top: -28%;
+  }
+  strong{
+    position: relative;
+    padding: 0 14px;
+    z-index: 30;
+    font-size: 1.2rem;
+  }
+}
+
+.firends{
+  width: 100%;
+  padding: 24px 0;
+  a{
+    display: block;
+    position: relative;
+    width: 80%;
+    max-width: 210px;
+    margin: 12px auto;
+    line-height: 36px;
+    text-indent: 80px;
+    height: 36px;
+    border-radius: 18px;
+    background: #ffbcda;
+    color:#aa6584;
+    font-size: .8rem;
+    white-space:nowrap;
+    span{
+      display: block;
+      width: 80px;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #4e2a2a;
+      font-size: 1rem;
+      text-indent: 0;
+    }
+  }
+}
+
+// 自适应规则
+
+@media screen and (max-width: 960px) {
+  .aboutPage{
+    flex-direction:column;
+  }
+  .addMain{
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 768px) {
+  .aboutPage{
+    padding-top: .4rem;
+  }
+  .consMain{
+    flex-direction: column;
+  }
+  .fontMain{
+    flex-direction: row;
+  }
+  .phonto{
+    flex: 1 0;
+    .myfont{
+      img{
+        width: auto;
+        height: 70%;
+      }
+    }
+  }
+  .introduce{
+    flex: 3 0;
+  }
+  .myintro{
+    flex: 2 1;
+    min-height: 342px;
+  }
+  .contact{
+    margin:0 0 .4rem 0;
+    padding: 0;
+  }
+  .phonto,.myintro,.link,.mail,.add{
+    margin: 0 .2rem .4rem .2rem;
+  }
+  .github,.weichart{
+    margin: 0 .2rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .fontMain,.contact{
+    height: 50vw;
+    padding: 0;
+  }
+  .city{
+    width: 100%;
+    .iconface{
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .cloud{
+    strong{
+      font-size: 1rem;
+    }
+  }
+  .mylabel{
+    min-height: 300px;
+  } 
+  .consMain,.introduce,.addMain{
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    &::after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+  .aboutPage{
+    display: block;
+    width: 100vw;
+    height: calc(100vh - 36px);
+    overflow-x:hidden;
+    overflow-y: auto; 
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar{
+      width: 4px;
+      border:none;
+      box-shadow: none;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background: rgba(255,255,255,.6);
+      border:none;
+      box-shadow: none;
+    }
+    &::-webkit-scrollbar-track {
+      border:none;
+      box-shadow: none;       
+      background: rgba(255,255,255,0)
+    }
+  }
+  .myintro,.link,.add{
+    margin: .2rem;
+    &>div{
+      position: inherit;
+    }
+  }
+  .myintro{
+    flex: none;
+  }
+  .link{
+    margin-bottom: 60px;
+  }
+  .phonto,.github,.weichart,.mail{
+    margin: .2rem;
+  }
+  .add{
+    height: 50vw;
+  }
+}
+
