@@ -22,3 +22,16 @@ So,自己写动画，自己写服务端，整就对了~
 
 ### 首页展示
 ![image text](https://raw.githubusercontent.com/ChuckOu/react-my-website/master/mywebsits.png)
+
+## Usage
+
+### 安装
+```
+git clone https://github.com/ChuckOu/react-my-website.git
+
+cd blog-react
+
+npm install
+
+npm run start
+```
