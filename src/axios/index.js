@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // your http
-const myUrl = 'http://localhost:3005/'
+const myUrl = 'https://www.vanoc.top/node/'
 
 axios.defaults.baseURL = myUrl;
 axios.create({

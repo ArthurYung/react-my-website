@@ -73,7 +73,7 @@ export default class Header extends Component{
             </a>))}
           </nav>
           <div className="times">
-            <a target="_blank" href="https://github.com/ChuckOu"><img src={this.props.git} alt=""/></a>
+            <a target="_blank" href="https://github.com/ArthurYung"><img src={this.props.git} alt=""/></a>
             <time>{this.state.time}</time>
           </div>
         </div>

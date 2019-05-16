@@ -212,7 +212,7 @@ body {
   background:linear-gradient(45deg, #e10522 0%, rgba(225, 5, 34, 0) 70%), linear-gradient(135deg, #3105d1 10%, rgba(49, 5, 209, 0) 80%), linear-gradient(225deg, #0adbd8 10%, rgba(10, 219, 216, 0) 80%), linear-gradient(315deg, #09f505 100%, rgba(9, 245, 5, 0) 70%)
 }
 .grid-bg .main,.grid-bg{
-  background: url('../../images/main-bg.png');
+  background: url('http://cdn.toofook.com/my-blog/main-bg.png');
 }
 
 .nav>span{
@@ -544,7 +544,7 @@ body {
   left: 50%;
   height: 34px;
   transform: translate(-50%,-50%);
-  background: url('../../images/loading.gif') no-repeat center;
+  background: url('http://cdn.toofook.com/my-blog/loading.gif') no-repeat center;
 }
 
 /*pop style*/
@@ -810,7 +810,7 @@ div[class*='select-style-']{
 .lazy{
   width: 100%;
   background-color: #f2f2f2;
-  background-image: url('../../images/loading.gif');
+  background-image: url('http://cdn.toofook.com/my-blog/loading.gif');
   background-position: center;
   background-repeat: no-repeat;
 }

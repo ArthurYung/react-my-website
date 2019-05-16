@@ -74,8 +74,8 @@ export function Git(){
       <div className={Css.img}>
         <img src={aboutImg.igit} alt=""/>
       </div> 
-      <h3>https://github.com/ChuckOu</h3>
-      <a href="https://github.com/ChuckOu" rel="external" target="_blank" className={Css.linkIcon}></a>
+      <h3>https://github.com/ArthurYung</h3>
+      <a href="https://github.com/ArthurYung" rel="external" target="_blank" className={Css.linkIcon}></a>
     </Pop>
   )
 }

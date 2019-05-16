@@ -1,10 +1,10 @@
 import React from 'react'
 import LazyImg from '@c/lazyImg'
-import monky1 from '@/images/work/monky1.jpg'
-import monky2 from '@/images/work/monky2.jpg'
-import monky3 from '@/images/work/monky3.jpg'
-import monky4 from '@/images/work/monky4.jpg'
-import monky5 from '@/images/work/monky5.jpg'
+const monky1 = 'http://cdn.toofook.com/my-blog/work/monky1.jpg'
+const monky2 = 'http://cdn.toofook.com/my-blog/work/monky2.jpg'
+const monky3 = 'http://cdn.toofook.com/my-blog/work/monky3.jpg'
+const monky4 = 'http://cdn.toofook.com/my-blog/work/monky4.jpg'
+const monky5 = 'http://cdn.toofook.com/my-blog/work/monky5.jpg'
 
 const pictrues = [monky1,monky2,monky3,monky4,monky5]
 export default ()=>{

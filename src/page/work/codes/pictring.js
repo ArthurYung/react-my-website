@@ -1,9 +1,9 @@
 import React from 'react'
 import LazyImg from '@c/lazyImg'
 import PopLink from '@c/poplink'
-import pictring1 from '@/images/work/pictring1.gif'
-import pictring2 from '@/images/work/pictring2.gif'
-import pictring3 from '@/images/work/pictring3.gif'
+const pictring1 = 'http://cdn.toofook.com/my-blog/work/pictring1.gif'
+const pictring2 = 'http://cdn.toofook.com/my-blog/work/pictring2.gif'
+const pictring3 = 'http://cdn.toofook.com/my-blog/work/pictring3.gif'
 export default ()=> {
   return(
     <article className="work-pop-main work-pop-code">
@@ -25,7 +25,7 @@ export default ()=> {
       </p>
       <LazyImg w="320px" h="568px" src={pictring3}/>
       <p>上传图片的最大值|图片压缩质量|是否可拖拽|缩略图容器宽度等，这些都可以在实例化时候传入参数设置，详细代码使用方式请关注github，试试看吧～</p>
-      <PopLink href="https://github.com/ChuckOu/PicTring"/>
+      <PopLink href="https://github.com/ArthurYung/PicTring"/>
     </article>
   )
 }

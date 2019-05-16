@@ -2,7 +2,7 @@ import React from 'react'
 import LazyImg from '@c/lazyImg'
 import Prism from 'prismjs'
 import PopLink from '@c/poplink'
-import blog from '@/images/work/myblog.jpg'
+const blog = 'http://cdn.toofook.com/my-blog/work/myblog.jpg'
 
 const text = {
   create:`    {
@@ -67,7 +67,7 @@ export default ()=> {
       <p>很多时候我们的弹窗需要脱离当前组件的dom树，添加到body的最下方（z-index属性只对同层级的dom有效），如果我们直接操作dom的话不仅开销大，虚拟dom会带来意想不到的惊喜。这个时候就需要用到我们的传送门createPortal了(在组件卸载时需要移除创建的节点)</p>
       <pre className="language-javascript" dangerouslySetInnerHTML={{__html:comHtml}}></pre>
       <p style={{marginTop:'1.6rem'}}>完整代码：</p>
-      <PopLink href = "https://github.com/ChuckOu/react-my-website"/>
+      <PopLink href = "https://github.com/ArthurYung/react-my-website"/>
     </article>
   )
 }

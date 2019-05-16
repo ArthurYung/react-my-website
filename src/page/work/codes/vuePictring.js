@@ -64,7 +64,7 @@ export default ()=> {
       <p style={{marginTop:'1.6rem'}}>我们还需要在注册插件时需要改变一些选项以及在使用插件时调用插件内获取选中图片的方法，所以我们需要包裹一层组件</p>
       <pre className="language-javascript" dangerouslySetInnerHTML={{__html:vueUseHtml}}></pre> 
       <p style={{marginTop:'1.6rem'}}>详细介绍请关注GitHub，试试看吧～</p>
-      <PopLink href = "https://github.com/ChuckOu/vue-pictring"/>
+      <PopLink href = "https://github.com/ArthurYung/vue-pictring"/>
     </article>
   )
 }

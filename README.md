@@ -30,7 +30,7 @@ So,自己写动画，自己写服务端，整就对了~
 
 ### 安装
 ```
-git clone https://github.com/ChuckOu/react-my-website.git
+git clone https://github.com/ArthurYung/react-my-website.git
 
 cd blog-react
 

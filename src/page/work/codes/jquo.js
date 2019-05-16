@@ -71,7 +71,7 @@ export default ()=>{
       <p>最后我们来看一遍选择器做了什么，至此jQuery的工作原理已基本实现。</p>
       <pre className="language-javascript" dangerouslySetInnerHTML={{__html:jqinitHtml}}></pre> 
       <p style={{marginTop:'1.6rem'}}>详细代码请关注GitHub～</p>
-      <PopLink href = "https://github.com/ChuckOu/jQuo/blob/master/jquo.js"/>
+      <PopLink href = "https://github.com/ArthurYung/jQuo/blob/master/jquo.js"/>
     </article>
   )
 }

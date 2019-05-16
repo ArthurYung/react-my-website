@@ -19,7 +19,7 @@ $msg_t_color: #055559;
   right: 0;
   animation: popUp  0.5s linear forwards;
   &::before{
-    content: url('../../images/bubble.png')
+    content: url('http://cdn.toofook.com/my-blog/bubble.png')
   }
 }
 .showMsg{
@@ -48,7 +48,7 @@ $msg_t_color: #055559;
       height: 22px;
       float: left;
       margin-top: -4px;
-      background: url('../../images/light.png') no-repeat center;
+      background: url('http://cdn.toofook.com/my-blog/light.png') no-repeat center;
     }
   }
 }

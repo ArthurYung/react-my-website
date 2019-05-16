@@ -1,10 +1,10 @@
 import React from 'react'
 import LazyImg from '@c/lazyImg'
-import chicken from '@/images/work/chicken.gif'
-import chicken1 from '@/images/work/chicken1.jpg'
-import chicken2 from '@/images/work/chicken2.jpg'
-import chicken3 from '@/images/work/chicken3.jpg'
-import chickenCode from '@/images/work/chikenCode.png'
+const chicken = 'http://cdn.toofook.com/my-blog/work/chicken.gif'
+const chicken1 = 'http://cdn.toofook.com/my-blog/work/chicken1.jpg'
+const chicken2 = 'http://cdn.toofook.com/my-blog/work/chicken2.jpg'
+const chicken3 = 'http://cdn.toofook.com/my-blog/work/chicken3.jpg'
+const chickenCode = 'http://cdn.toofook.com/my-blog/work/chikenCode.png'
 
 export default ()=>{
     return(
