@@ -45,7 +45,7 @@ export default class TextNode extends Component {
     return (
       <div className={homeCss.text}>
         <span className={this.state.span1?homeCss.animate:''}>Hey There</span><br/>
-        <span className={this.state.span2?homeCss.animate:''}>I'm Arthur.O</span><br/>
+        <span className={this.state.span2?homeCss.animate:''}>I'm Bruce.Au</span><br/>
         <span className={this.state.span3?homeCss.animate:''}>( σ'ω')σ<strong>#Skr</strong><i className={this.state.cursor?homeCss.cursor:''}></i></span>
       </div>
     )
