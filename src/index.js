@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './route/root';
 import registerServiceWorker from './registerServiceWorker';
 import './components/globalcss/init.scss'
-import 'prismjs/themes/prism-okaidia.css'
+import 'prismjs/themes/prism.css'
 import * as imgUrls from './components/imgurls'
 import FastClick from 'fastclick'
 FastClick.attach(document.body);

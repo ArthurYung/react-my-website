@@ -1,7 +1,7 @@
 
 .doll-clearfix{display:inline-block}
 .doll-clearfix::after{content:"";visibility:hidden;display:inline-block;font-size:0;clear:both;height:0}
-.doll-outer{display:table;margin:0 auto;height:100%}
+.doll-outer{display:table;margin:0 auto;height:100%;opacity:0.4}
 .doll-middle{display:table-cell;vertical-align:middle}
 .doll-main{position:relative;height:190px;margin:18px}
 @media (max-width:550px){.doll-main{-webkit-transform:scale(0.75);transform:scale(0.75)}}

@@ -1,0 +1,154 @@
+@import '~@c/globalcss/color.scss';
+.blog {
+  &-main {
+    padding: 30px 0;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+  }
+  &-menu {
+    &-box {
+      flex: 1;
+      max-width: 400px;
+      margin-right: 12px;
+      overflow: hidden;
+    }
+    &-content {
+      overflow-y: auto;
+      box-sizing: border-box;
+      padding: 12px;
+      height: calc(100% - 40px);
+      -webkit-overflow-scrolling: touch;
+    }
+    &-list {
+      & > li {
+        padding: 12px;
+        cursor: pointer;
+      }
+    }
+    &-wait {
+      &:hover {
+        & .blog-menu-title {
+          color: $color_main
+        }
+      }
+    }
+    &-index {
+      background-color: $color_main
+    }
+    &-time {
+      font-size: 14px;
+      color: rgba(0, 0, 0, .4)
+    }
+    &-label {
+      font-size: 12px;
+      margin-left: 14px
+    }
+  }
+  &-article {
+    &-box {
+      flex: 2;
+      overflow: hidden;
+    }
+  }
+  &-mobile {
+    .blog-menu-box {
+      margin-right: 0
+    }
+    .blog-article-box {
+      flex: 1;
+      display: none
+    }
+  }
+  &-look {
+    .blog-menu-box {
+      margin-right: 0;
+      display: none
+    }
+    .blog-article-box {
+      display: block
+    }
+  }
+  &-toggle {
+    display: block;
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 46px;
+    height: 46px;
+    z-index: 9999;
+    border-radius: 50%;
+    background-color: $color_main;
+    font-size: 12px;
+    text-align: center;
+    line-height: 46px;
+    border: 1px solid #1f1f1f;
+  }
+}
+
+
+.article {
+  width: 100%;
+  height: calc(100% - 40px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  &-center {
+    width: 80%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 0;
+    h1 {
+      font-size: 1.6em
+    }
+    h2 {
+      font-size: 1.4em
+    }
+    h3 {
+      font-size: 1.2em
+    }
+  }
+}
+.view {
+  img {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  p {
+    margin: 1.5em 0;
+    & > code {
+      padding: 2px 4px;
+      color: #c7254e;
+      background-color: #f9f2f4;
+      border-radius: 4px
+    }
+  }
+  pre {
+    padding: 1rem;
+    border: none;
+    overflow: auto;
+    line-height: 1.45;
+    max-height: 35rem;
+    position: relative;
+    background: #f6f6f6
+  }
+  blockquote {
+    border-left: 2px solid #8e24aa;
+    background: #f6f6f6;
+    color: #555;
+    font-size: 1rem;
+    margin: 1.5rem 0;
+    padding: 10px
+  }
+  h1, h2 {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px
+  }
+  blockquote p:last-child {
+    margin: 0
+  }
+}
+
+
+
+
+

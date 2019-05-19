@@ -1,6 +1,5 @@
 @charset "utf-8";
 @import './color.scss';
-
 @import './blogdoll.scss'; //Blog暂用样式
 $color_black:#111111;
 $font_name: "erikos","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif;
@@ -565,6 +564,9 @@ div[class*='figure-style-']{
   background-color: #fff;
   &>p{
     background-color: #d8dce3;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 }
 .figure-style-main{

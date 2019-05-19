@@ -58,7 +58,10 @@ export default class PopSelf extends Component {
           ><a onClick={this.props.close} title="关闭"></a>{this.props.title}</p> 
       }
     }
-    const myClass = this.props.noClose ? `figure-pop-about figure-style-${this.props.type}`: `figure-pop figure-style-${this.props.type}`
+    let myClass = this.props.noClose ? `figure-pop-about figure-style-${this.props.type}`: `figure-pop figure-style-${this.props.type}`
+    if (this.props.class) {
+      myClass += ` ${this.props.class}`
+    }
     return (
       <div ref="pops" 
         className={myClass}>
