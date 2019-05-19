@@ -33,13 +33,13 @@ export default class Blog extends Component {
     }
   }
   changeArticle(article) {
+    this.refs.articleComponent.resetScrollTop()
     this.setState({
       currentArticle: article,
       lookPage: true
     })
   }
   toggleMenu() {
-    console.log(this.state.lookPage)
     this.setState(({ lookPage }) => ({
       lookPage: !lookPage
     }))
@@ -73,7 +73,7 @@ export default class Blog extends Component {
             unmove={true}
             class={blogCss['blog-article-box']}
           >
-            <Article data={ currentArticle }/>
+            <Article ref="articleComponent" data={ currentArticle }/>
           </Pop>
         </div>
         {

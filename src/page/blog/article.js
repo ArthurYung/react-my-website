@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import marked from 'marked'
 import Prism from 'prismjs'
 import * as blogCss from './blog.scss'
@@ -14,19 +14,24 @@ marked.setOptions({
   }
 })
 
-export default props => {
-  const { body, title } = props.data
-  if (!body) {
-    return (<div></div>)
+export default class Article extends Component {
+  resetScrollTop() {
+    this.refs.article.scrollTop = '0px'
   }
-  const html = marked(body, {renderer})
-  return (
-    <div className = {blogCss.article}>
-      <div className = {blogCss['article-center']}>
-        <h1 style={{marginBottom: '24px'}}> {title} </h1>
-        <div className={blogCss.view} dangerouslySetInnerHTML={{__html:html}}>
+  render () {
+    const { body, title } = this.props.data
+    if (!body) {
+      return (<div></div>)
+    }
+    const html = marked(body, {renderer})
+    return (
+      <div ref="article" className = {blogCss.article}>
+        <div className = {blogCss['article-center']}>
+          <h1 style={{marginBottom: '24px'}}> {title} </h1>
+          <div className={blogCss.view} dangerouslySetInnerHTML={{__html:html}}>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
