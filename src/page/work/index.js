@@ -77,8 +77,8 @@ export default class Work extends Component{
   }
   toAbout(){
     isPhone 
-    ? document.querySelector(".mobile-nav").getElementsByTagName("a")[2].click() 
-    : document.querySelector(".nav").getElementsByTagName("a")[2].click() // 跳转至ablout页面
+    ? document.querySelector(".mobile-nav").getElementsByTagName("a")[3].click() 
+    : document.querySelector(".nav").getElementsByTagName("a")[3].click() // 跳转至ablout页面
   }
   render(){
     const type = this.state.types
