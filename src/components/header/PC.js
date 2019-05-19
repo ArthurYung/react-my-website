@@ -19,9 +19,9 @@ export default class Header extends Component{
     this.state = {
       nav:[
         {indent:true,text:'HOME',herf:'/'},
-        {indent:false,text:'WORK',herf:'/work'},
-        {indent:false,text:'ABOUT',herf:'/about'},
         {indent:false,text:'BLOG',herf:'/blog'},
+        {indent:false,text:'WORK',herf:'/work'},
+        {indent:false,text:'ABOUT',herf:'/about'}
       ],
       now: TimeNow(), //当前index，用来避免重复点击当前nav引起的页面切换效果
     }
