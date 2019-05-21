@@ -9,10 +9,10 @@ export default class Comments extends React.Component {
     }
   }
   componentWillMount() {
-    this.getArticleReactions()
+    this.getArticleReactions(this.props.data)
   }
-  componentWillReceiveProps() {
-    this.getArticleReactions()
+  componentWillReceiveProps(newProps) {
+    this.getArticleReactions(newProps.data)
   }
   handleReactionUp() {
     if (!this.props.userInfo.id) this.props.showLogin()
@@ -27,12 +27,12 @@ export default class Comments extends React.Component {
       likeIsActive: true
     })
   }
-  getArticleReactions() {
+  getArticleReactions(dataInfo) {
     this.setState({
       reactions: []
     })
     const token = localStorage.getItem('githubToken')
-    axios.get(this.props.data.url + '/reactions', {
+    axios.get(dataInfo.url + '/reactions', {
       headers: {
         'Authorization': token,
         'Accept': 'application/vnd.github.squirrel-girl-preview+json'
@@ -61,11 +61,11 @@ export default class Comments extends React.Component {
     return (
       <div className={comCss['comment-box']}>
         <section className={comCss['reaction-box']}>
-          <div className={upIconClass} onClick={()=>this.handleReactionUp()}>
+          <div className={upIconClass} onClick={()=>this.handleReactionUp(reactionsUpItems)}>
             <i></i>
             <span>{reactionsUpItems.length}</span>
           </div>
-          <div className={likeIconClass} onClick={()=>this.handleReactionLike()}>
+          <div className={likeIconClass} onClick={()=>this.handleReactionLike(reactionsLikeItems)}>
             <i></i>
             <span>{reactionsLikeItems.length}</span>
           </div>
