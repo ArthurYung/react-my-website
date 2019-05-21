@@ -4,6 +4,7 @@ import Prism from 'prismjs'
 import Labels from './labels'
 import moment from 'moment'
 import Login from './login'
+import Comments from './comments'
 import * as blogCss from './blog.scss'
 
 const renderer = new marked.Renderer()
@@ -16,6 +17,9 @@ marked.setOptions({
     }
     return code
   }
+  //         headers: {
+        //   'Accept': 'application/vnd.github.squirrel-girl-preview+json'
+        // }
 })
 
 export default class Article extends Component {
@@ -29,7 +33,7 @@ export default class Article extends Component {
       html_url, 
       labels, 
       created_at,
-      needLoginGithub 
+      needLoginGithub
     } = this.props.data
     if (needLoginGithub) {
       return (<Login reGetter={this.props.reGetter}/>)
@@ -45,8 +49,8 @@ export default class Article extends Component {
           <a target="_blank" href={html_url}>[原文链接]</a>
           <span className = { blogCss['blog-menu-time'] }>{ moment(created_at).format('YYYY-MM-DD') }</span>
           <Labels labels={labels} />
-          <div className={blogCss.view} dangerouslySetInnerHTML={{__html:html}}>
-          </div>
+          <div className={blogCss.view} dangerouslySetInnerHTML={{__html:html}} />
+          <Comments data={this.props.data} userInfo={this.props.userInfo} showLogin={this.props.show}/>
         </div>
       </div>
     )

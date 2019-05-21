@@ -15,7 +15,8 @@ export default class Blog extends Component {
       articles: [],
       currentArticle: {},
       lookPage: false,
-      showLogin: false
+      showLogin: false,
+      userInfo: {}
     }
   }
   switchOut(n){
@@ -25,6 +26,7 @@ export default class Blog extends Component {
   }
   componentWillMount() {
     this.getArticleList()
+    this.getUserInfo()
   }
   changeArticle(article) {
     this.refs.articleComponent.resetScrollTop()
@@ -43,6 +45,16 @@ export default class Blog extends Component {
       showLogin: status
     })
   }
+  showLogin() {
+    this.setState({
+      showLogin: true,
+      lookPage: true,
+      currentArticle: {
+        title: 'Github授权',
+        needLoginGithub: true
+      }
+    })
+  }
   async getArticleList() {
     const token = localStorage.getItem('githubToken')
     try {
@@ -56,18 +68,25 @@ export default class Blog extends Component {
         currentArticle: data[0]
       })
     } catch (err) {
-      this.setState({
-        showLogin: true,
-        lookPage: true,
-        currentArticle: {
-          title: 'Gihub授权',
-          needLoginGithub: true
-        }
-      })
+      this.showLogin()
     }
   }
+  getUserInfo() {
+    const token = localStorage.getItem('githubToken')
+    axios.get('https://api.github.com/user', {
+      headers: {
+        Authorization: token
+      }
+    }).then(({data}) => {
+      this.setState({
+        userInfo: data
+      })
+    }).catch(err => {
+      console.log(err)
+    })
+  }
   render(){
-    const { articles, currentArticle, lookPage } = this.state
+    const { articles, currentArticle, lookPage, userInfo } = this.state
     let blogClassNames = [blogCss['blog-main']]
     if (isMobile) {
       blogClassNames.push(blogCss['blog-mobile'])
@@ -95,7 +114,13 @@ export default class Blog extends Component {
             unmove={true}
             class={blogCss['blog-article-box']}
           >
-            <Article ref="articleComponent" reGetter={()=>this.getArticleList()} data={ currentArticle }/>
+            <Article 
+              ref="articleComponent" 
+              showLogin={()=>this.showLogin()} 
+              reGetter={()=>this.getArticleList()} 
+              data={ currentArticle } 
+              userInfo={userInfo}
+            />
           </Pop>
         </div>
         {

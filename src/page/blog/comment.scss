@@ -1,0 +1,80 @@
+@import '~@c/globalcss/color.scss';
+.comment{
+  &-box {
+    padding-top: 50px;
+  }
+}
+
+.reaction {
+  &-box {
+    margin: 0 auto;
+    width: 260px;
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+  &-up, &-like {
+    box-sizing: border-box;
+    width: 118px;
+    height: 72px;
+    padding-top: 14px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #f7f7f7;
+    i {
+      display: block;
+      width: 100%;
+      height: 30px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+    }
+    span {
+      font-size: 12px;
+      font-weight: bolder;
+      margin-top: 10px;
+      color: #666;
+    }
+  }
+  &-up {
+    float: left;
+    i {
+      background-image: url('http://cdn.toofook.com/my-blog/icon/up-n.png')
+    }
+    &-active{
+      background-color: $color_main;
+      i {
+        background-image: url('http://cdn.toofook.com/my-blog/icon/up-d.png')
+      }
+      span {
+        color: #fff
+      }
+    }
+  }
+  &-like {
+    float: right;
+    i {
+      background-image: url('http://cdn.toofook.com/my-blog/icon/like-n.png')
+    }
+    &-active{
+      background-color: $color_pink;
+      i {
+        background-image: url('http://cdn.toofook.com/my-blog/icon/like-d.png')
+      }
+      span {
+        color: #fff
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 375px){
+  .reaction-box {
+    transform-origin: center;
+    transform: scale(0.8)
+  }
+}
