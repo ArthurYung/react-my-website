@@ -22,6 +22,7 @@ const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
+
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -185,9 +186,9 @@ module.exports = {
                   ],
                 },
               },
-              require.resolve(paths.appNodeModules + '/sass-loader'),
+              {loader: require.resolve( 'sass-loader')}
             ],
-            include: paths.appSrc + '/page/',
+            include: path.resolve(path.resolve(paths.appSrc, 'page')),
           },
           {
             test: /\.(css|scss)$/,
@@ -220,9 +221,9 @@ module.exports = {
                   ],
                 },
               },
-              require.resolve(paths.appNodeModules + '/sass-loader'),
+              {loader: require.resolve( 'sass-loader')}
             ],
-            include:[paths.appSrc + '/components/',paths.appNodeModules]
+            include:[path.resolve(paths.appSrc, 'components'),paths.appNodeModules]
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
