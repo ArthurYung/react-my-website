@@ -7,6 +7,7 @@
     height: calc(100% - 140px);
   }
   &-content {
+    padding: 0 18px;
     img {
       display: block;
       margin: 42px auto 20px auto;
@@ -56,6 +57,13 @@
       font-weight: bold;
       border-radius: 24px;
       margin: 12px auto
+    }
+    &-switch {
+      font-size: 12px;
+      text-align: center;
+      display: block;
+      width: 100%;
+      color: #4456a7;
     }
   }
 }

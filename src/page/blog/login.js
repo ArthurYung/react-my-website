@@ -8,25 +8,40 @@ export default class Login extends Component {
     super()
     this.state = {
       type: '',
-      text: ''
+      text: '',
+      loginType: 'token'
     }
   }
   showModel(opt) {
     this.setState(opt)
     this.refs.model.show()
   }
-  async submitGithub() {
+  loginByToken() {
+    const inputToken = this.refs.token.value
+    if (!token) {
+      this.showModel({
+        type: 'err',
+        text: 'Account Token不能为空'
+      })
+      return
+    }
+    const token = `Bearer ${inputToken}`
+    this.checkLogin(token)
+  }
+  loginByAccount() {
     const account = this.refs.account.value
     const password = this.refs.password.value
-
     if (!account || !password) {
       this.showModel({
         type: 'err',
         text: '账号密码不能为空'
       })
+      return
     }
-
     const token = `Basic ${btoa(account + ':' + password)}`
+    this.checkLogin(token)
+  }
+  async checkLogin(token) {
     try {
       await Axios.get('https://api.github.com/user', {
         headers: {
@@ -36,27 +51,50 @@ export default class Login extends Component {
       localStorage.setItem('githubToken', token)
       this.showModel({
         type: 'ok',
-        text: '您已成功登陆'
+        text: '您已成功授权'
       })
       setTimeout(()=>this.props.reGetter(), 1600)
     } catch (e) {
       this.showModel({
         type: 'err',
-        text: '账号或密码错误'
+        text: '验证错误，请重试'
       })
     }
+  }
+  submitGithub() {
+    if (this.loginType === 'token') {
+      this.loginByToken()
+    } else {
+      this.loginByAccount()
+    }
+  }
+  switchType() {
+    this.setState(({loginType}) => {
+      if (loginType === 'token') {
+        return { loginType: 'auth' }
+      } else {
+        return { loginType: 'token' }
+      }
+    })
   }
   render() {
     return (
       <div className={loginCss['login-box']}>
         <div className={loginCss['login-content']}>
           <img src={aboutImg.igit} alt=""/>
-          <h3>API限制，请登陆你的Github</h3>
+          <h3>API限制，请使用Github授权</h3>
           <p>Authenticated requests get a higher rate limit. Check out the documentation for more details.</p>
           <div className={loginCss['login-input-box']}>
-            <input type="text" placeholder="Github account" ref="account" onKeyUp={e => {e.keyCode==13 && this.submitGithub()}}/>
-            <input type="password" placeholder="Github password" ref="password" onKeyUp={e => {e.keyCode==13 && this.submitGithub()}}/>
+            {
+              this.state.loginType === 'token'
+              ? <input type="text" placeholder="Account Token" ref="token" onKeyUp={e => {e.keyCode==13 && this.submitGithub()}}/>
+              : <div> 
+                  <input type="text" placeholder="Github account" ref="account" onKeyUp={e => {e.keyCode==13 && this.submitGithub()}}/>
+                  <input type="password" placeholder="Github password" ref="password" onKeyUp={e => {e.keyCode==13 && this.submitGithub()}}/>
+                </div>
+            }
             <button className={loginCss['login-input-submit']} onClick={()=> this.submitGithub()}>Login</button>
+            <a className={loginCss['login-input-switch']} onClick={()=>this.switchType()}>{ this.state.loginType==='token' ? '使用账号密码授权' : '使用account token授权' }</a>
           </div>
         </div>
         <Model ref="model" type={this.state.type} text={this.state.text}/>

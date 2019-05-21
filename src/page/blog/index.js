@@ -60,7 +60,7 @@ export default class Blog extends Component {
         showLogin: true,
         lookPage: true,
         currentArticle: {
-          title: '登陆Gihub',
+          title: 'Gihub授权',
           needLoginGithub: true
         }
       })
