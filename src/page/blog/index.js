@@ -6,6 +6,7 @@ import Article from './article'
 import Pop from '@c/windo'
 import isMobile from '@/utils/isPhone'
 import * as blogCss from './blog.scss'
+
 export default class Blog extends Component {
   constructor(){
     super()
@@ -13,7 +14,8 @@ export default class Blog extends Component {
       switchin: true,
       articles: [],
       currentArticle: {},
-      lookPage: false
+      lookPage: false,
+      showLogin: false
     }
   }
   switchOut(n){
@@ -21,16 +23,8 @@ export default class Blog extends Component {
       switchin: n
     })
   }
-  async componentWillMount() {
-    const { data } = await axios.get('https://api.github.com/repos/ArthurYung/my-voice/issues')
-    if (data) {
-      this.setState({
-        articles: data,
-        currentArticle: data[0]
-      })
-    } else {
-      alert('列表拉取失败')
-    }
+  componentWillMount() {
+    this.getArticleList()
   }
   changeArticle(article) {
     this.refs.articleComponent.resetScrollTop()
@@ -43,6 +37,34 @@ export default class Blog extends Component {
     this.setState(({ lookPage }) => ({
       lookPage: !lookPage
     }))
+  }
+  setLoginStatus(status) {
+    this.setState({
+      showLogin: status
+    })
+  }
+  async getArticleList() {
+    const token = localStorage.getItem('githubToken')
+    try {
+      const { data } = await axios.get('https://api.github.com/repos/ArthurYung/my-voice/issues', {
+        headers: {
+          Authorization: token
+        }
+      })
+      this.setState({
+        articles: data,
+        currentArticle: data[0]
+      })
+    } catch (err) {
+      this.setState({
+        showLogin: true,
+        lookPage: true,
+        currentArticle: {
+          title: '登陆Gihub',
+          needLoginGithub: true
+        }
+      })
+    }
   }
   render(){
     const { articles, currentArticle, lookPage } = this.state
@@ -73,7 +95,7 @@ export default class Blog extends Component {
             unmove={true}
             class={blogCss['blog-article-box']}
           >
-            <Article ref="articleComponent" data={ currentArticle }/>
+            <Article ref="articleComponent" reGetter={()=>this.getArticleList()} data={ currentArticle }/>
           </Pop>
         </div>
         {

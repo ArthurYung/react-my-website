@@ -3,6 +3,7 @@ import marked from 'marked'
 import Prism from 'prismjs'
 import Labels from './labels'
 import moment from 'moment'
+import Login from './login'
 import * as blogCss from './blog.scss'
 
 const renderer = new marked.Renderer()
@@ -27,12 +28,15 @@ export default class Article extends Component {
       title, 
       html_url, 
       labels, 
-      created_at 
+      created_at,
+      needLoginGithub 
     } = this.props.data
+    if (needLoginGithub) {
+      return (<Login reGetter={this.props.reGetter}/>)
+    }
     if (!body) {
       return (<div></div>)
     }
-
     const html = marked(body, {renderer})
     return (
       <div ref="article" className = {blogCss.article}>

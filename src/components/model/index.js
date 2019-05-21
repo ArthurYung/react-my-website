@@ -1,5 +1,6 @@
 import React from 'react';
-import {createPortal} from 'react-dom';
+import {CSSTransition} from 'react-transition-group'
+import Model from './model'
 
 /**
  * @name 警示弹窗
@@ -9,33 +10,30 @@ import {createPortal} from 'react-dom';
  */
 export default class MyPortal extends React.Component {
   constructor() {
-    super(...arguments)
-    const doc = window.document;
-    this.node = doc.createElement('div');
-    doc.body.appendChild(this.node);
+    super()
+    this.state = {
+      model: false
+    }
   }
-  clearboth(e){
-    e.stopPropagation();
-  }
-  clearmove(e){
-   e.stopPropagation();   
-  }
-  componentDidMount(){
-    this.timeOut = setTimeout(this.props.close,this.props.time)
+  show() {
+    this.setState({
+      model: true
+    })
+    this.timeOut = setTimeout(()=>this.setState({model: false}), 1600)
   }
   componentWillUnmount(){
     clearTimeout(this.timeOut)
   }
   render() {
-    return createPortal(
-      <div className={`model-pop model-${this.props.type}`}>
-        <h1>{this.props.type==='ok'? '账号绑定成功':'请求错误，请重试'}</h1>
-      </div>, //塞进传送门的JSX
-      this.node //传送门的另一端DOM node
-    );
-  }
-
-  componentWillUnmount() {
-    window.document.body.removeChild(this.node);
+    return (
+    <CSSTransition
+    in={this.state.model}
+    key='tests'
+    timeout={200}
+    unmountOnExit
+    classNames="slide">
+      <Model type={this.props.type} text={this.props.text}/>
+    </CSSTransition>
+    )
   }
 }

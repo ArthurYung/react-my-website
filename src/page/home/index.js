@@ -4,7 +4,6 @@ import Footer from './components/footer'
 import Switch from '@c/switch'
 import MyIcon from './components/icons'
 import Model from '@c/model'
-import {CSSTransition} from 'react-transition-group'
 /**
  * 页面入口主组件
  */
@@ -61,29 +60,22 @@ export default class Home extends Component{
   setLoading(opt){
     this.setState({
       user: opt,
-      model: true,
       modelType: 'ok'
     })
     this.setCookie("testEmali",opt.email)
     this.setCookie("testName",opt.name)
+    this.refs.model.show()
   }
   isErro(){
-    console.log()
     this.setState({
-      model: true,
       modelType: 'err'
-    })  
+    }) 
+    this.refs.model.show()
   }
   // 页面切换动画控制
   switchOut(n){
     this.setState({
       switchin:n
-    })
-  }
-  // 注册成功弹窗控制
-  closeModel(){
-    this.setState({
-      model:false
     })
   }
   render(){
@@ -98,14 +90,7 @@ export default class Home extends Component{
             isErro={this.isErro.bind(this)} 
           />
         </div>
-        <CSSTransition
-        in={this.state.model}
-        key='tests'
-        timeout={200}
-        unmountOnExit
-        classNames="slide">
-        <Model type={this.state.modelType} close={this.closeModel.bind(this)} time="2000"/>
-      </CSSTransition>
+        <Model ref='model' type={this.state.modelType} time="2000"/>
       {this.state.switchin?<Switch type="enter" callback={this.switchOut.bind(this)}/>:''}
       </main>
     )

@@ -1,0 +1,110 @@
+.login{
+  &-box{
+    display:flex;
+    justify-content:center;  //子元素水平居中
+    align-items:center;      //子元素垂直居中
+    width: 100%;
+    height: calc(100% - 140px);
+  }
+  &-content {
+    img {
+      display: block;
+      margin: 42px auto 20px auto;
+    }
+    h3 {
+      text-align: center;
+      color:#1a1a1a;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 16px
+    }
+    p {
+      text-align: center;
+      color:#ccc;
+      font-size: 14px;
+      background: none;
+      border: none;
+      line-height: 1.5
+    }
+  }
+  &-input {
+    &-box {
+      width: 360px;
+      margin: 30px auto;
+      position: relative;
+      input {
+        display: block;
+        box-sizing: border-box;
+        width: 240px;
+        height: 36px;
+        border-radius: 24px;
+        background-color: #f1f1f1;
+        border:none;
+        font-size: 14px;
+        margin: 12px auto;
+        text-align: center;
+      }
+    }
+    &-submit {
+      display: block;
+      width: 240px;
+      height: 36px;
+      box-sizing: border-box;
+      background-color: #f95f56;
+      font-size: 14px;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 24px;
+      margin: 12px auto
+    }
+  }
+}
+// img {
+//   display: block;
+//   margin: 42px auto 20px auto;
+// }
+// h1{
+//   text-align: center;
+//   color:#1a1a1a;
+//   font-weight: bold;
+//   font-size: 1.6rem;
+// }
+// p{
+//   text-align: center;
+//   color:#ccc;
+//   font-size: 1rem;
+//   background: none;
+//   border: none;
+//   line-height: 2
+// }
+// .sginInput{
+//   width: 360px;
+//   margin: 30px auto;
+//   position: relative;
+//   input{
+//       float: left;
+//       width: 200px;
+//       height: 48px;
+//       border-radius: 24px;
+//       background-color: #f1f1f1;
+//       border:none;
+//       font-size: 14px;
+//       padding-left: 12px;
+//   }
+//   button{
+//       display: block;
+//       width: 128px;
+//       height: 48px;
+//       background-color: #f95f56;
+//       font-size: 1.2rem;
+//       color: #fff;
+//       font-weight: bold;
+//       float: right;
+//       border-radius: 24px;
+//   }
+//   &::after{
+//       content: '';
+//       display: block;
+//       clear: both;
+//   }
+// }
