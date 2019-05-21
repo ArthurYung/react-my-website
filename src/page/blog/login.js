@@ -83,7 +83,7 @@ export default class Login extends Component {
         <div className={loginCss['login-content']}>
           <img src={aboutImg.igit} alt=""/>
           <h3>API限制，请使用Github授权</h3>
-          <p>Authenticated requests get a higher rate limit. Check out the documentation for more details.</p>
+          <p>Authenticated requests get a higher rate limit. Check out the <a target="_blank" href="https://developer.github.com/v3/#rate-limiting">documentation</a> for more details.</p>
           <div className={loginCss['login-input-box']}>
             {
               this.state.loginType === 'token'

@@ -3,7 +3,7 @@ import * as blogCss from './blog.scss'
 const Label = props => {
   const { color, name, url } = props
   return (
-    <a className={blogCss['blog-menu-label']} target="_blank" herf={url} style={{color: `#${color}`}}>{ name }</a>
+    <a className={blogCss['blog-menu-label']} target="_blank" href={url} style={{color: `#${color}`}}>{ name }</a>
   )
 }
 
