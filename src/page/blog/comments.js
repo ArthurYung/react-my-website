@@ -1,9 +1,11 @@
 import React from 'react'
 import comCss from './comment.scss'
 import Axios from '@/utils/request'
+import { CancelToken } from 'axios'
 import CommentInput from './input.js'
 import Model from '@c/model'
 import Comment from './comment'
+
 export default class Comments extends React.Component {
   constructor() {
     super()
@@ -14,6 +16,8 @@ export default class Comments extends React.Component {
       text: '',
       commentLoading: false
     }
+    this.getReactionsCancel = () => {}
+    this.getCommentsCancel = () => {}
   }
   componentWillMount() {
     this.getArticleReactions(this.props.data)
@@ -57,8 +61,12 @@ export default class Comments extends React.Component {
     this.getArticleReactions(this.props.data)
   }
   async getArticleReactions(dataInfo) {
-    const { data, error } = await Axios({ 
-      url: `${dataInfo.url}/reactions?time=${Date.now()}`, 
+    this.getReactionsCancel()
+    const { data } = await Axios({ 
+      url: `${dataInfo.url}/reactions?time=${Date.now()}`,
+      cancelToken: new CancelToken((c) => {
+        this.getReactionsCancel = c;
+      }),
       headers: {
         'Accept': 'application/vnd.github.squirrel-girl-preview+json'
       }
@@ -66,13 +74,17 @@ export default class Comments extends React.Component {
     this.setState({ reactions: data || [] })
   }
   async getArticleComments(dataInfo) {
-    const { data } = await Axios({ 
-      url: `${dataInfo.url}/comments?time=${Date.now()}`, 
+    this.getCommentsCancel()
+    const { data = [] } = await Axios({ 
+      url: `${dataInfo.url}/comments?time=${Date.now()}`,
+      cancelToken: new CancelToken((c) => {
+        this.getCommentsCancel = c;
+      }),
       headers: {
         'Accept': 'application/vnd.github.squirrel-girl-preview+json'
       }
     })
-    this.setState({ comments: data.reverse() || [] })
+    this.setState({ comments: data.reverse()})
   }
   async postComment() {
     const text = this.refs.commentInput.getValue()
