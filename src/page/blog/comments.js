@@ -2,12 +2,15 @@ import React from 'react'
 import comCss from './comment.scss'
 import Axios from '@/utils/request'
 import CommentInput from './input.js'
-
+import Model from '@c/model'
 export default class Comments extends React.Component {
   constructor() {
     super()
     this.state = {
       reactions: [],
+      type: '',
+      text: '',
+      commentLoading: false
     }
   }
   componentWillMount() {
@@ -16,6 +19,10 @@ export default class Comments extends React.Component {
   componentWillReceiveProps(newProps) {
     this.setState({ reactions: [] })
     this.getArticleReactions(newProps.data)
+  }
+  showModel(opt) {
+    this.setState(opt)
+    this.refs.model.show()
   }
   async handleReactionModify(type, item) {
     if (!this.props.userInfo.id) {
@@ -55,8 +62,58 @@ export default class Comments extends React.Component {
       this.props.showLogin()
     }
   }
+  async postComment() {
+    const text = this.refs.commentInput.getValue()
+    const dataInfo = this.props.data
+
+    if (this.state.commentLoading) {
+      return
+    }
+
+    if (!this.props.userInfo.id) {
+      this.props.showLogin()
+      return
+    }
+
+    if (!text.trim().length) {
+      this.showModel({
+        type: 'err',
+        text: '输入为空'
+      })
+      return
+    }
+    this.setState({
+      commentLoading: true
+    })
+    const { data } = await Axios({
+      url: `${dataInfo.url}/comments`,
+      method: 'post',
+      data: {
+        "body": text
+      },
+      headers: {
+        'Accept': 'application/vnd.github.squirrel-girl-preview+json'
+      }
+    })
+    this.setState({
+      commentLoading: false
+    })
+    if (data) {
+      this.showModel({
+        type: 'ok',
+        text: '留言成功！'
+      })
+      this.getArticleReactions(dataInfo)
+      this.refs.commentInput.emptyValue()
+    } else {
+      this.showModel({
+        type: 'ok',
+        text: '留言失败，请重试'
+      })
+    }
+  }
   render () {
-    const { reactions } = this.state
+    const { reactions, commentLoading } = this.state
     const { id } = this.props.userInfo
     const reactionsUpItems = reactions.filter(item => item.content === '+1')
     const reactionsLikeItems = reactions.filter(item => item.content === 'heart')
@@ -65,9 +122,11 @@ export default class Comments extends React.Component {
 
     let upIconClass = comCss['reaction-up']
     let likeIconClass = comCss['reaction-like']
-    
+    let submitClass = comCss['comment-form-submit']
+
     if (upActiveItem) upIconClass += ` ${comCss['reaction-up-active']}`
     if (likeActiveItem) likeIconClass += ` ${comCss['reaction-like-active']}`
+    if (commentLoading) submitClass += ` ${comCss['comment-form-loading']}`
 
     return (
       <div>
@@ -82,8 +141,10 @@ export default class Comments extends React.Component {
           </div>        
         </section>
         <section className={comCss['comment-form']}>
-          <CommentInput/>
+          <CommentInput ref="commentInput"/>
+          <button className={submitClass} onClick={()=>this.postComment()}>Comment</button>
         </section>
+        <Model ref="model" type={this.state.type} text={this.state.text}/>
       </div>
     )
   }

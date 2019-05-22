@@ -77,6 +77,53 @@
     width: 100%;
     padding-top: 35px;
     border-top: 1px solid #eaeaea;
+    &-submit {
+      display: block;
+      width: 140px;
+      height: 45px;
+      box-sizing: border-box;
+      background-color: #f95f56;
+      font-size: 14px;
+      color: #fff;
+      font-weight: bold;
+      border-radius: 24px;
+      margin-left: 50px;
+      margin-top: 14px;
+      position: relative;
+    }
+    &-loading{
+      opacity: 0.5;
+      color: #f95f56;
+      &::before{
+        content: '';
+        box-sizing: border-box;
+        display: block;
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 1;
+      }
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        top: 50%;
+        margin-top: -4px;
+        left: 50%;
+        margin-left: -15px;
+        background-color: #f95f56;
+        z-index: 2;
+        animation: submitLoading .4s linear infinite running;
+        transform-origin: 15px center
+      }
+    }
   }
 }
 
@@ -84,5 +131,19 @@
   .reaction-box {
     transform-origin: center;
     transform: scale(0.8)
+  }
+}
+
+@keyframes submitLoading {
+  0%{
+    transform: rotate(0deg)
+  }
+
+  50%{
+    transform: rotate(180deg)
+  }
+
+  100%{
+    transform: rotate(360deg)
   }
 }

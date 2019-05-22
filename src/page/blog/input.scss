@@ -69,3 +69,14 @@
   z-index: -1;
   position: absolute;
 }
+
+@media screen and (max-width: 375px){
+  .user-emoji-list{
+    line-height: 30px;
+    font-size: 18px;
+    span {
+      width: 20px;
+      margin: 0 5px
+    }
+  }
+}
