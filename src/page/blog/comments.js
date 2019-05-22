@@ -1,6 +1,7 @@
 import React from 'react'
 import comCss from './comment.scss'
 import Axios from '@/utils/request'
+import CommentInput from './input.js'
 
 export default class Comments extends React.Component {
   constructor() {
@@ -68,9 +69,8 @@ export default class Comments extends React.Component {
     if (upActiveItem) upIconClass += ` ${comCss['reaction-up-active']}`
     if (likeActiveItem) likeIconClass += ` ${comCss['reaction-like-active']}`
 
-
     return (
-      <div className={comCss['comment-box']}>
+      <div>
         <section className={comCss['reaction-box']}>
           <div className={upIconClass} onClick={()=>this.handleReactionModify('up', upActiveItem)}>
             <i></i>
@@ -79,7 +79,10 @@ export default class Comments extends React.Component {
           <div className={likeIconClass} onClick={()=>this.handleReactionModify('like', likeActiveItem)}>
             <i></i>
             <span>{reactionsLikeItems.length}</span>
-          </div>
+          </div>        
+        </section>
+        <section className={comCss['comment-form']}>
+          <CommentInput/>
         </section>
       </div>
     )

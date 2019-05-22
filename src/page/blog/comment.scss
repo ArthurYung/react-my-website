@@ -1,13 +1,8 @@
 @import '~@c/globalcss/color.scss';
-.comment{
-  &-box {
-    padding-top: 50px;
-  }
-}
 
 .reaction {
   &-box {
-    margin: 0 auto;
+    margin: 40px auto;
     width: 260px;
     &::after {
       content: '';
@@ -41,6 +36,9 @@
   }
   &-up {
     float: left;
+    &:hover {
+      opacity: 0.8;
+    }
     i {
       background-image: url('http://cdn.toofook.com/my-blog/icon/up-n.png')
     }
@@ -56,6 +54,9 @@
   }
   &-like {
     float: right;
+    &:hover {
+      opacity: 0.8;
+    }
     i {
       background-image: url('http://cdn.toofook.com/my-blog/icon/like-n.png')
     }
@@ -71,6 +72,13 @@
   }
 }
 
+.comment {
+  &-form {
+    width: 100%;
+    padding-top: 35px;
+    border-top: 1px solid #eaeaea;
+  }
+}
 
 @media screen and (max-width: 375px){
   .reaction-box {

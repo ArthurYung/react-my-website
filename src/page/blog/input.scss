@@ -1,0 +1,71 @@
+.user {
+  &-input {
+    width: 100%;
+    &-label {
+      display: block;
+    }
+    &-enter {
+      margin-left: 50px;
+      textarea {
+        border-radius: 20px;
+        transition: all 1s;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        line-height: 22px;
+        height: 45px;
+        padding: 10px 15px;
+        background: #f7f7f7;
+        color: #555;
+        font-size: 14px;
+        outline: none;
+      }
+    }
+  }
+  &-emoji {
+    width: 46px;
+    position: relative;
+    float: left;
+    &-icon {
+      display: block;
+      width: 40px;
+      height: 40px;
+      margin-top: 2px;
+      background: url('http://cdn.toofook.com/my-blog/emoji/emoji.png') no-repeat center;
+      background-size: contain;
+      cursor: pointer;
+    }
+    &-list {
+      width: 60vw;
+      position: absolute;
+      max-width: 400px;
+      background: #fff;
+      border: 1px solid #f7f7f7;
+      box-shadow: 2px 2px 6px rgba(0,0,0,.3);
+      padding: 16px;
+      border-radius: 20px;
+      line-height: 40px;
+      font-size: 24px;
+      bottom: 50px;
+      span {
+        display: inline-block;
+        width: 30px;
+        margin: 0 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: transform .05s ease-in;
+        &:hover {
+          transform: scale(1.3)
+        }
+      }
+    }
+  }
+}
+
+.hided{
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+}
