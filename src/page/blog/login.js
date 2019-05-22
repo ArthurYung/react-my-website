@@ -39,12 +39,12 @@ export default class Login extends Component {
       return
     }
     const token = `Basic ${btoa(account + ':' + password)}`
+    localStorage.setItem('githubToken', token)
     this.checkLogin(token)
   }
-  async checkLogin(token) {
-    const { data} = await Axios({url:'https://api.github.com/user'})
+  async checkLogin() {
+    const { data } = await Axios({url:'https://api.github.com/user'})
     if (data) {
-      localStorage.setItem('githubToken', token)
       this.showModel({
         type: 'ok',
         text: '您已成功授权'

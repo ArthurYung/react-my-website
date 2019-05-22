@@ -17,14 +17,11 @@ marked.setOptions({
     }
     return code
   }
-  //         headers: {
-        //   'Accept': 'application/vnd.github.squirrel-girl-preview+json'
-        // }
 })
 
 export default class Article extends Component {
   resetScrollTop() {
-    this.refs.article.scrollTop = '0px'
+    this.refs.article && (this.refs.article.scrollTop = '0px')
   }
   render () {
     const { 
