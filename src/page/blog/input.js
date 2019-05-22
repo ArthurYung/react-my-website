@@ -40,19 +40,6 @@ export default class Input extends Component {
       currentLine: 1
     }
   }
-  showEmojiList() {
-    this.refs.emojiToggle.focus()
-  }
-  handleBlur() {
-    this.setState({
-      showEmoji: false
-    })
-  }
-  handleFocus() {
-    this.setState({
-      showEmoji: true
-    })
-  }
   emptyValue() {
     this.refs.commentText.value = ''
     this.setState({
@@ -93,7 +80,7 @@ export default class Input extends Component {
       <div className={iptCss['user-input']}>
         <div className={iptCss['user-input-label']}>
           <div className={iptCss['user-emoji']}>
-            <span className={iptCss['user-emoji-icon']} onClick={()=>this.showEmojiList()}></span>
+            <span className={iptCss['user-emoji-icon']} onClick={()=>this.refs.emojiToggle.focus()}></span>
             <CSSTransition
               in={this.state.showEmoji}
               key='tests'
@@ -109,8 +96,8 @@ export default class Input extends Component {
             <input 
               ref="emojiToggle"
               className={iptCss['hided']}
-              onFocus={(e)=>this.handleFocus(e)}
-              onBlur={(e)=>this.handleBlur(e)}
+              onFocus={()=>this.setState({showEmoji: true})}
+              onBlur={()=>this.setState({showEmoji: false})}
             />
           </div>
           <div className={iptCss['user-input-enter']}>
