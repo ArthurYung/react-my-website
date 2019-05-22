@@ -22,9 +22,8 @@ span,a,button,li{
   -moz-user-focus: none;
 }
 *:focus { 
-          outline: none;
-         background-color: transparent;
-     }
+  outline: none
+}
 ::selection{background:#000;color:#fff }
 ::-moz-selection{background:#000;color:#fff }
 
