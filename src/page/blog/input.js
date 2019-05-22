@@ -15,8 +15,8 @@ const getLineSize = ele => {
   return (2 * width / parseInt(fontSize))
 }
 
-const getRealLine = (str, size) => {
-  let len = 1
+const getRealLine = (str, size, indent) => {
+  let len = indent + 1
   let index = 0
   str = str.replace(/[^\x00-\xff]/g, "01")
   for (let i = 0; i < str.length; i++, index++) {
@@ -56,24 +56,15 @@ export default class Input extends Component {
       e.preventDefault()
     }
   }
-  textAutoSize() {
+  textAutoSize(e) {
     const element = this.refs.commentText
     const lineSize = this.$lineSize || getLineSize(element)
-    const realLine = getRealLine(element.value, lineSize) 
+    const realLine = getRealLine(element.value, lineSize, e.keyCode == 13 ? 1 : 0) 
     const lineHeight = 22 
     this.$lineSize = lineSize
-    if (this.state.currentLine < realLine) {
-      this.setState(({currentHeight, currentLine}) => ({
-        currentHeight: currentHeight + lineHeight,
-        currentLine: currentLine + 1
-      }))
-    }
-    if (this.state.currentLine > realLine) {
-      this.setState(({currentHeight, currentLine}) => ({
-        currentHeight: currentHeight - lineHeight,
-        currentLine: currentLine - 1
-      }))
-    }
+    this.setState({
+      currentHeight: 45 + lineHeight * (realLine - 1)
+    })
   }
   render() {
     return (
@@ -105,7 +96,7 @@ export default class Input extends Component {
               ref="commentText" 
               placeholder="Leave a comment" 
               style={{height: this.state.currentHeight + 'px'}} 
-              onKeyDown={()=>this.textAutoSize()}
+              onKeyDown={(e)=>this.textAutoSize(e)}
             />
           </div>
         </div>

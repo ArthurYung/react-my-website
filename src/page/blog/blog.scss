@@ -138,7 +138,7 @@
     color: #555;
     font-size: 1rem;
     margin: 1.5rem 0;
-    padding: 10px
+    padding: 10px;
   }
   h1, h2 {
     border-bottom: 1px solid #eee;
@@ -146,6 +146,9 @@
   }
   blockquote p:last-child {
     margin: 0
+  }
+  code, a, h1, h2, h3, pre, p {
+    font-family: $art_font;
   }
 }
 

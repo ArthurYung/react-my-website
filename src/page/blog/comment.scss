@@ -125,6 +125,50 @@
       }
     }
   }
+  &-view {
+    margin-top: 40px;
+  }
+  &-item {
+    width: 100%;
+    margin: 18px 0;
+    font-family: $art_font;
+    &-img {
+      display: block;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #f7f7f7;
+      background-position: center;
+      background-size: contain;
+      float: left;
+    }
+    &-box {
+      margin-left: 50px;
+    }
+    &-context {
+      border-radius: 20px;
+      background-color: #f7f7f7;
+      padding: 15px 15px 10px 15px;
+      box-sizing: border-box;
+      h3 {
+        font-size: 16px;
+        font-weight: bold;
+        color: #111;
+        span {
+          font-size: 12px;
+          color: #ccc;
+          margin-left: 12px;
+          font-weight: 100        
+        }
+      }
+      article {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-top: 6px;
+        color: #666
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 375px){

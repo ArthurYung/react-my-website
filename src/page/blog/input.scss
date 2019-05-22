@@ -1,3 +1,4 @@
+@import '~@c/globalcss/color.scss';
 .user {
   &-input {
     width: 100%;
@@ -8,7 +9,7 @@
       margin-left: 50px;
       textarea {
         border-radius: 20px;
-        transition: all 1s;
+        transition: all .6s;
         display: block;
         box-sizing: border-box;
         width: 100%;
@@ -19,6 +20,11 @@
         color: #555;
         font-size: 14px;
         outline: none;
+        border: 1px solid #d6d7dc;
+        &:focus {
+          border-color: $color_main;
+          background-color: #fff0c2
+        }
       }
     }
   }

@@ -3,11 +3,13 @@ import comCss from './comment.scss'
 import Axios from '@/utils/request'
 import CommentInput from './input.js'
 import Model from '@c/model'
+import Comment from './comment'
 export default class Comments extends React.Component {
   constructor() {
     super()
     this.state = {
       reactions: [],
+      comments: [],
       type: '',
       text: '',
       commentLoading: false
@@ -15,10 +17,15 @@ export default class Comments extends React.Component {
   }
   componentWillMount() {
     this.getArticleReactions(this.props.data)
+    this.getArticleComments(this.props.data)
   }
   componentWillReceiveProps(newProps) {
-    this.setState({ reactions: [] })
+    this.setState({ 
+      reactions: [],
+      comments: []
+    })
     this.getArticleReactions(newProps.data)
+    this.getArticleComments(newProps.data)
   }
   showModel(opt) {
     this.setState(opt)
@@ -50,17 +57,22 @@ export default class Comments extends React.Component {
     this.getArticleReactions(this.props.data)
   }
   async getArticleReactions(dataInfo) {
-    const { data } = await Axios({ 
+    const { data, error } = await Axios({ 
       url: `${dataInfo.url}/reactions?time=${Date.now()}`, 
       headers: {
         'Accept': 'application/vnd.github.squirrel-girl-preview+json'
       }
     })
-    if (data) {
-      this.setState({ reactions: data })
-    } else {
-      this.props.showLogin()
-    }
+    this.setState({ reactions: data || [] })
+  }
+  async getArticleComments(dataInfo) {
+    const { data } = await Axios({ 
+      url: `${dataInfo.url}/comments?time=${Date.now()}`, 
+      headers: {
+        'Accept': 'application/vnd.github.squirrel-girl-preview+json'
+      }
+    })
+    this.setState({ comments: data.reverse() || [] })
   }
   async postComment() {
     const text = this.refs.commentInput.getValue()
@@ -103,7 +115,7 @@ export default class Comments extends React.Component {
         type: 'ok',
         text: '留言成功！'
       })
-      this.getArticleReactions(dataInfo)
+      this.getArticleComments(dataInfo)
       this.refs.commentInput.emptyValue()
     } else {
       this.showModel({
@@ -113,7 +125,7 @@ export default class Comments extends React.Component {
     }
   }
   render () {
-    const { reactions, commentLoading } = this.state
+    const { reactions, commentLoading, comments } = this.state
     const { id } = this.props.userInfo
     const reactionsUpItems = reactions.filter(item => item.content === '+1')
     const reactionsLikeItems = reactions.filter(item => item.content === 'heart')
@@ -143,6 +155,13 @@ export default class Comments extends React.Component {
         <section className={comCss['comment-form']}>
           <CommentInput ref="commentInput"/>
           <button className={submitClass} onClick={()=>this.postComment()}>Comment</button>
+        </section>
+        <section className={comCss['comment-view']}>
+          { 
+            comments.length ?
+            comments.map(comment => <Comment data={comment} key={comment.id}/>) :
+            <div style={{textAlign: 'center', color: '#ccc'}}>这里空空如也～</div>
+          }
         </section>
         <Model ref="model" type={this.state.type} text={this.state.text}/>
       </div>
