@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import Switch from '@c/switch'
-import axios from 'axios'
+import Axios from '@/utils/request'
 import Menu from './menu'
 import Article from './article'
 import Pop from '@c/windo'
@@ -56,12 +56,9 @@ export default class Blog extends Component {
     })
   }
   async getArticleList() {
-    const token = localStorage.getItem('githubToken')
     try {
-      const { data } = await axios.get('https://api.github.com/repos/ArthurYung/my-voice/issues', {
-        headers: {
-          Authorization: token
-        }
+      const { data } = await Axios({
+        url: 'https://api.github.com/repos/ArthurYung/my-voice/issues'
       })
       this.setState({
         articles: data,
@@ -71,18 +68,15 @@ export default class Blog extends Component {
       this.showLogin()
     }
   }
-  getUserInfo() {
-    const token = localStorage.getItem('githubToken')
-    axios.get('https://api.github.com/user', {
-      headers: {
-        Authorization: token
-      }
-    }).then(({data}) => {
-      this.setState({
-        userInfo: data
-      })
-    }).catch(err => {
-      console.log(err)
+  async getUserInfo() {
+    const { data } = await Axios({ url: 'https://api.github.com/user'})
+    if (data) {
+      this.resetUserInfo(data)
+    }
+  }
+  resetUserInfo(info) {
+    this.setState({
+      userInfo: info
     })
   }
   render(){
@@ -118,6 +112,7 @@ export default class Blog extends Component {
               ref="articleComponent" 
               showLogin={()=>this.showLogin()} 
               reGetter={()=>this.getArticleList()} 
+              resetUserInfo={data=>this.resetUserInfo(data)}
               data={ currentArticle } 
               userInfo={userInfo}
             />

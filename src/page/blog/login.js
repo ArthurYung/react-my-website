@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {aboutImg} from '@c/imgurls'
 import * as loginCss from './login.scss'
-import Axios from 'axios';
+import Axios from '@/utils/request'
 import Model from '@c/model'
 export default class Login extends Component {
   constructor() {
@@ -42,19 +42,16 @@ export default class Login extends Component {
     this.checkLogin(token)
   }
   async checkLogin(token) {
-    try {
-      await Axios.get('https://api.github.com/user', {
-        headers: {
-          Authorization: token
-        }
-      })
+    const { data} = await Axios({url:'https://api.github.com/user'})
+    if (data) {
       localStorage.setItem('githubToken', token)
       this.showModel({
         type: 'ok',
         text: '您已成功授权'
       })
+      this.props.resetUserInfo(data)
       setTimeout(()=>this.props.reGetter(), 1600)
-    } catch (e) {
+    } else {
       this.showModel({
         type: 'err',
         text: '验证错误，请重试'
@@ -62,7 +59,7 @@ export default class Login extends Component {
     }
   }
   submitGithub() {
-    if (this.loginType === 'token') {
+    if (this.state.loginType === 'token') {
       this.loginByToken()
     } else {
       this.loginByAccount()

@@ -36,7 +36,7 @@ export default class Article extends Component {
       needLoginGithub
     } = this.props.data
     if (needLoginGithub) {
-      return (<Login reGetter={this.props.reGetter}/>)
+      return (<Login resetUserInfo={this.props.resetUserInfo} reGetter={this.props.reGetter}/>)
     }
     if (!body) {
       return (<div></div>)
@@ -50,7 +50,7 @@ export default class Article extends Component {
           <span className = { blogCss['blog-menu-time'] }>{ moment(created_at).format('YYYY-MM-DD') }</span>
           <Labels labels={labels} />
           <div className={blogCss.view} dangerouslySetInnerHTML={{__html:html}} />
-          <Comments data={this.props.data} userInfo={this.props.userInfo} showLogin={this.props.show}/>
+          <Comments data={this.props.data} userInfo={this.props.userInfo} resetUserInfo={this.props.resetUserInfo} showLogin={this.props.showLogin}/>
         </div>
       </div>
     )

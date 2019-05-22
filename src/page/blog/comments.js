@@ -1,6 +1,7 @@
 import React from 'react'
 import comCss from './comment.scss'
-import axios from 'axios';
+import Axios from '@/utils/request'
+
 export default class Comments extends React.Component {
   constructor() {
     super()
@@ -12,60 +13,70 @@ export default class Comments extends React.Component {
     this.getArticleReactions(this.props.data)
   }
   componentWillReceiveProps(newProps) {
+    this.setState({ reactions: [] })
     this.getArticleReactions(newProps.data)
   }
-  handleReactionUp() {
-    if (!this.props.userInfo.id) this.props.showLogin()
-    if (this.state.upIsActive) return
-    this.setState({
-      upIsActive: true
-    })
+  async handleReactionModify(type, item) {
+    if (!this.props.userInfo.id) {
+      this.props.showLogin()
+      return
+    }
+    if (item) {
+     await Axios({
+        url: `https://api.github.com/reactions/${item.id}`,
+        method: 'delete',
+        headers: {
+          'Accept': 'application/vnd.github.squirrel-girl-preview+json'
+        }
+      })
+    } else {
+      await Axios({
+        url: `${this.props.data.url}/reactions`,
+        method: 'post',
+        data: { content: type === 'like' ? 'heart' : '+1' },
+        headers: {
+          'Accept': 'application/vnd.github.squirrel-girl-preview+json'
+        }
+      })
+    }
+    this.getArticleReactions(this.props.data)
   }
-  handleReactionLike() {
-    if (this.state.likeIsActive) return
-    this.setState({
-      likeIsActive: true
-    })
-  }
-  getArticleReactions(dataInfo) {
-    this.setState({
-      reactions: []
-    })
-    const token = localStorage.getItem('githubToken')
-    axios.get(dataInfo.url + '/reactions', {
+  async getArticleReactions(dataInfo) {
+    const { data } = await Axios({ 
+      url: `${dataInfo.url}/reactions?time=${Date.now()}`, 
       headers: {
-        'Authorization': token,
         'Accept': 'application/vnd.github.squirrel-girl-preview+json'
       }
-    }).then(({data})=>{
-      this.setState({
-        reactions: data
-      })
-    }).catch(e=>console.log(e))
+    })
+    if (data) {
+      this.setState({ reactions: data })
+    } else {
+      this.props.showLogin()
+    }
   }
   render () {
     const { reactions } = this.state
     const { id } = this.props.userInfo
     const reactionsUpItems = reactions.filter(item => item.content === '+1')
     const reactionsLikeItems = reactions.filter(item => item.content === 'heart')
-    const upIsActive = reactionsUpItems.some(item => item.user.id === id)
-    const likeIsActive = reactionsLikeItems.some(item => item.user.id === id)
+    const upActiveItem = reactionsUpItems.find(item => item.user.id === id)
+    const likeActiveItem = reactionsLikeItems.find(item => item.user.id === id)
 
     let upIconClass = comCss['reaction-up']
     let likeIconClass = comCss['reaction-like']
     
-    if (upIsActive) upIconClass += ` ${comCss['reaction-up-active']}`
-    if (likeIsActive) likeIconClass += ` ${comCss['reaction-like-active']}`
+    if (upActiveItem) upIconClass += ` ${comCss['reaction-up-active']}`
+    if (likeActiveItem) likeIconClass += ` ${comCss['reaction-like-active']}`
 
 
     return (
       <div className={comCss['comment-box']}>
         <section className={comCss['reaction-box']}>
-          <div className={upIconClass} onClick={()=>this.handleReactionUp(reactionsUpItems)}>
+          <div className={upIconClass} onClick={()=>this.handleReactionModify('up', upActiveItem)}>
             <i></i>
             <span>{reactionsUpItems.length}</span>
           </div>
-          <div className={likeIconClass} onClick={()=>this.handleReactionLike(reactionsLikeItems)}>
+          <div className={likeIconClass} onClick={()=>this.handleReactionModify('like', likeActiveItem)}>
             <i></i>
             <span>{reactionsLikeItems.length}</span>
           </div>
