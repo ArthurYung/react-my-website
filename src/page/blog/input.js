@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import iptCss from './input.scss'
 import {CSSTransition} from 'react-transition-group'
+import isMobile from '@/utils/isPhone'
 
 const EMOJI_LIST = [
   '😄', '😆','😊','😃','😏','😍','😘','😚','😳','😌','😆','😁',
@@ -39,6 +40,13 @@ export default class Input extends Component {
       currentHeight: 45,
       currentLine: 1
     }
+    this.closeEmojiView = this.closeEmojiView.bind(this)
+  }
+  componentWillMount() {
+    document.body.addEventListener('click', this.closeEmojiView)
+  }
+  componentWillUnmount() {
+    document.body.removeEventListener('click', this.closeEmojiView)
   }
   emptyValue() {
     this.refs.commentText.value = ''
@@ -52,9 +60,19 @@ export default class Input extends Component {
   selectEmoji(e) {
     if (e.target.tagName === 'SPAN') {
       this.refs.commentText.value += e.target.innerText
-      this.refs.emojiToggle.blur()
+      this.setState({showEmoji: false})
       e.preventDefault()
     }
+  }
+  showEmojiView() {
+    this.setState({showEmoji: true})
+  }
+  closeEmojiView(e) {
+    const target = this.refs.emojiView
+    if (target && target.contains(e.target)) { 
+      return
+    }
+    this.setState({showEmoji: false})
   }
   textAutoSize(e) {
     const element = this.refs.commentText
@@ -71,25 +89,19 @@ export default class Input extends Component {
       <div className={iptCss['user-input']}>
         <div className={iptCss['user-input-label']}>
           <div className={iptCss['user-emoji']}>
-            <span className={iptCss['user-emoji-icon']} onClick={()=>this.refs.emojiToggle.focus()}></span>
+            <span className={iptCss['user-emoji-icon']} onClick={()=>{this.showEmojiView()}}></span>
             <CSSTransition
               in={this.state.showEmoji}
               key='tests'
               timeout={200}
               unmountOnExit
               classNames="fade">
-              <div className={iptCss['user-emoji-list']} onClick={(e)=>this.selectEmoji(e)}>
+              <div ref="emojiView" className={iptCss['user-emoji-list']} onClick={(e)=>this.selectEmoji(e)}>
                 {
                   EMOJI_LIST.map((emoji, i) => <span key={i}>{emoji}</span>)
                 }
               </div>
             </CSSTransition>
-            <input 
-              ref="emojiToggle"
-              className={iptCss['hided']}
-              onFocus={()=>this.setState({showEmoji: true})}
-              onBlur={()=>this.setState({showEmoji: false})}
-            />
           </div>
           <div className={iptCss['user-input-enter']}>
             <textarea 
