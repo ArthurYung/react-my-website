@@ -33,7 +33,7 @@
     "history": "^4.7.2",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
-    "marked": "^0.6.2",
+    "marked": "^0.7.0",
     "matter-js": "^0.14.2",
     "moment": "^2.24.0",
     "node-sass": "^4.9.3",
