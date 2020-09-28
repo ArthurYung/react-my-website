@@ -2,7 +2,7 @@ import React from 'react'
 import LazyImg from '@c/lazyImg'
 import Prism from 'prismjs'
 import PopLink from '@c/poplink'
-const blog = 'http://cdn.toofook.com/my-blog/work/myblog.jpg'
+const blog = '//cdn.toofook.com/my-blog/work/myblog.jpg'
 
 const text = {
   create:`    {

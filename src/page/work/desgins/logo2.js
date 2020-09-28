@@ -1,6 +1,6 @@
 import React from 'react'
 import LazyImg from '@c/lazyImg'
-const logo2 = 'http://cdn.toofook.com/my-blog/work/logo2.jpg'
+const logo2 = '//cdn.toofook.com/my-blog/work/logo2.jpg'
 export default ()=> {
     return(
       <article className="work-pop-main">

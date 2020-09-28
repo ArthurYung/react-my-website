@@ -1,9 +1,9 @@
 import React from 'react'
 import LazyImg from '@c/lazyImg'
 import PopLink from '@c/poplink'
-const pictring1 = 'http://cdn.toofook.com/my-blog/work/pictring1.gif'
-const pictring2 = 'http://cdn.toofook.com/my-blog/work/pictring2.gif'
-const pictring3 = 'http://cdn.toofook.com/my-blog/work/pictring3.gif'
+const pictring1 = '//cdn.toofook.com/my-blog/work/pictring1.gif'
+const pictring2 = '//cdn.toofook.com/my-blog/work/pictring2.gif'
+const pictring3 = '//cdn.toofook.com/my-blog/work/pictring3.gif'
 export default ()=> {
   return(
     <article className="work-pop-main work-pop-code">

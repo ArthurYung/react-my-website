@@ -67,7 +67,7 @@ export default ()=>{
     <article className="work-pop-main work-pop-code">
       <h1>老思鸡H5</h1>
       <p>zepto + AlloyTouch + 微信sdk实现的一个微信H5单页</p>
-      <LazyImg w="320px" h="572px" src="http://cdn.toofook.com/my-blog/work/ckcode.gif"/>
+      <LazyImg w="320px" h="572px" src="//cdn.toofook.com/my-blog/work/ckcode.gif"/>
       <h5>简介</h5>
       <p>没错，除了设计之外前端也是我干的。项目只有3个页面，交互动画和图片居多，同时还需要在页面载入时静默授权和微信sdk验签，思考后觉得以dom操作为主引入轻量的zepto比较合项目的需求。</p>
       <p>我通过Object.defineProperty监听render值进行页面跳转，只需要改变render值，就可以触发新旧页面dom标签上声明的跳转动画;同时在实例化时将dom标签上声明的tap事件绑定到dom上</p>
@@ -75,7 +75,7 @@ export default ()=>{
       <p style={{marginTop:'1.6rem'}}>在html标签上添加声明，并在实例化时传入相应事件，这样代码管理起来也会清晰许多，就像用了框架一样。</p>
       <pre className="language-javascript" dangerouslySetInnerHTML={{__html:cknewHTml}}></pre>
       <p style={{marginTop:'1.6rem'}}>扫描二维码体验一下～</p>
-      <LazyImg w="320px" h="572px" src="http://cdn.toofook.com/my-blog/work/chikenCode.png"/>
+      <LazyImg w="320px" h="572px" src="//cdn.toofook.com/my-blog/work/chikenCode.png"/>
     </article> 
   )
 }
