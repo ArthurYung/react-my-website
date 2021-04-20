@@ -7,6 +7,7 @@ const sup = '//cdn.toofook.com/my-blog/sup.png'
 const readme = '//cdn.toofook.com/my-blog/readme.png'
 const msg = '//cdn.toofook.com/my-blog/msg.png'
 const setting = '//cdn.toofook.com/my-blog/setting.png'
+const ox = '//cdn.toofook.com/my-blog/ox.png'
 
 // work
 const logo1 = '//cdn.toofook.com/my-blog/logo1.png'
@@ -62,7 +63,8 @@ const homeIcon = {
   sup,
   readme,
   msg,
-  setting
+  setting,
+  ox
 }
 
 const homeImg = { 
