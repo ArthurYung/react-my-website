@@ -208,10 +208,10 @@ module.exports = {
                       ],
                     },
                   },
-                  require.resolve(paths.appNodeModules + '/sass-loader'),
+                  {loader: require.resolve('sass-loader')},
                 ],
             },extractTextPluginOptions)),
-            include: paths.appSrc +'/page/'
+            include: path.resolve(path.resolve(paths.appSrc, 'page')),
           },
            {
             test: /\.(css|scss)$/,
@@ -252,10 +252,10 @@ module.exports = {
                       ],
                     },
                   },
-                  require.resolve(paths.appNodeModules + '/sass-loader'),
+                  {loader: require.resolve('sass-loader')}
                 ],
             },extractTextPluginOptions)),
-            include:[paths.appSrc +'/components/',paths.appNodeModules]
+            include:[path.resolve(paths.appSrc, 'components'),paths.appNodeModules]
           },
 
 
