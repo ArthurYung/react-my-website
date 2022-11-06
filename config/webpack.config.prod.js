@@ -27,12 +27,21 @@ const shouldUseSourceMap =  false;
 const publicUrl = publicPath.slice(0, -1);
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
-
+ // 中文你晓得吗？
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
 if (env.stringified['process.env'].NODE_ENV !== '"production"') {
   throw new Error('Production builds must have NODE_ENV=production.');
 }
+
+// +---------------------------+
+// |                           |
+// |                           |
+// |  中文超级测试一下看看吧诶     |
+// |                           |
+// |                           |
+// +---------------------------+
+
 
 // Note: defined here because it will be used more than once.
 const cssFilename = 'static/css/[name].[contenthash:8].css';
