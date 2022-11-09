@@ -2,6 +2,7 @@
 import glitch from '../images/glitch.png'
 import mail from '../images/mail.png'
 import smile from '../images/smile.png'
+import ox from '../images/ox.png'
 
 import sup from '../images/sup.png'
 import readme from '../images/readme.png'
@@ -62,7 +63,8 @@ const homeIcon = {
   sup,
   readme,
   msg,
-  setting
+  setting,
+  ox
 }
 
 const homeImg = { 

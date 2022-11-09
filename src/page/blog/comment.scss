@@ -40,12 +40,12 @@
       opacity: 0.8;
     }
     i {
-      background-image: url('//cdn.toofook.com/my-blog/icon/up-n.png')
+      background-image: url('@image/icon/up-n.png')
     }
     &-active{
       background-color: $color_main;
       i {
-        background-image: url('//cdn.toofook.com/my-blog/icon/up-d.png')
+        background-image: url('@image/icon/up-d.png')
       }
       span {
         color: #fff
@@ -58,12 +58,12 @@
       opacity: 0.8;
     }
     i {
-      background-image: url('//cdn.toofook.com/my-blog/icon/like-n.png')
+      background-image: url('@image/icon/like-n.png')
     }
     &-active{
       background-color: $color_pink;
       i {
-        background-image: url('//cdn.toofook.com/my-blog/icon/like-d.png')
+        background-image: url('@image/icon/like-d.png')
       }
       span {
         color: #fff

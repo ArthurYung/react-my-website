@@ -34,14 +34,6 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
   throw new Error('Production builds must have NODE_ENV=production.');
 }
 
-// +---------------------------+
-// |                           |
-// |                           |
-// |  中文超级测试一下看看吧诶     |
-// |                           |
-// |                           |
-// +---------------------------+
-
 
 // Note: defined here because it will be used more than once.
 const cssFilename = 'static/css/[name].[contenthash:8].css';
@@ -104,7 +96,9 @@ module.exports = {
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
       'react-native': 'react-native-web',
       '@c': paths.appSrc +'/components', 
-      '@': paths.appSrc
+      '@': paths.appSrc,
+      '@home': paths.appSrc + '/page/home',
+      '@image': paths.appSrc + '/images'
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).

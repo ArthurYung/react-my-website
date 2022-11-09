@@ -93,9 +93,9 @@ export default class MyIcon extends Component{
         other = {this.props}
         {...fig}/>)}
         <div  className='figure-flex'>
-          <figure onClick={() => window.open('https://ox.vanoc.top')}>
+          <figure onClick={() => window.open('https://ox.bruceau.com')}>
             <img src={homeIcon.ox} alt=""/>
-            <figcaption>跨端复制</figcaption>
+            <figcaption>跨端</figcaption>
           </figure>
       </div>
       </div>

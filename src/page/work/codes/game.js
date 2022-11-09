@@ -2,7 +2,7 @@ import React from 'react'
 import LazyImg from '@c/lazyImg'
 import Prism from 'prismjs'
 import PopLink from '@c/poplink'
-const gameImg = '//cdn.toofook.com/my-blog/work/gameImg.png'
+const gameImg = '//cdn-qiniu.bruceau.com/my-blog/work/gameImg.png'
 const text = {
   init:`initPiece () {
         let _this = this
