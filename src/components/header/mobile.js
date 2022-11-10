@@ -50,7 +50,7 @@ export default class Mobile extends Component{
       <div className="app-center">
         <div className="mobile-logo">
           <img src={this.props.logo} alt=""/>
-          <span>Arthur.O</span>
+          <span>Bruce.O</span>
         </div>
         <a onClick={this.toggleNav.bind(this)} className={`mobile-menu ${menuClass}`}>
           <div></div>

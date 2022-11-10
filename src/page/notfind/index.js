@@ -13,7 +13,7 @@ export default class NotFind extends Component{
           <div className={Css.ErrText}>
             <h1>404</h1>
             <h3>FILE NOT FIND</h3>
-            <a href="https://www.vanoc.top/">HOME PLEASE</a>
+            <a href="https://www.bruceau.com/">HOME PLEASE</a>
           </div>
         </div>
       </div>

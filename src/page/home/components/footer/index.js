@@ -12,7 +12,7 @@ export default function TextNode () {
           <li><b>const</b>{dateValue}</li>
           <li><b>const</b> UseTime = 4s</li>
           <li><b>const</b> Add=广东省深圳市</li>
-          <li>WWW.VANOC.TOP</li>
+          <li>WWW.BRUCEAU.COM</li>
           <li><a target="_blank" href="http://www.miitbeian.gov.cn/">粤ICP备17162184号-2</a></li>
         </ul>
       </footer>
