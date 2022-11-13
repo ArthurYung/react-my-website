@@ -15,16 +15,16 @@ So,自己写动画，自己写服务端，整就对了~
 
 ### 演示地址
 
-  __[Arthur.O的个人博客](https://www.vanoc.top/)__
+  __[Bruce.O的个人博客](https://www.bruceau.com/)__
 * PC端弹窗可拖拽
 * 移动端about页重力表情包
 * 实现路由按需加载后使用延迟跳转实现了动画的平滑过渡
 
 ### 文件目录
-![image text](https://raw.githubusercontent.com/ChuckOu/react-my-website/master/myfiles.png)
+![image text](https://raw.githubusercontent.com/ArthurYung/react-my-website/master/myfiles.png)
 
 ### 首页展示
-![image text](https://raw.githubusercontent.com/ChuckOu/react-my-website/master/mywebsits.png)
+![image text](https://raw.githubusercontent.com/ArthurYung/react-my-website/master/mywebsits.png)
 
 ## Usage
 
