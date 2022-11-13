@@ -20,11 +20,9 @@ So,自己写动画，自己写服务端，整就对了~
 * 移动端about页重力表情包
 * 实现路由按需加载后使用延迟跳转实现了动画的平滑过渡
 
-### 文件目录
-![image text](https://raw.githubusercontent.com/ArthurYung/react-my-website/master/myfiles.png)
 
 ### 首页展示
-![image text](https://raw.githubusercontent.com/ArthurYung/react-my-website/master/mywebsits.png)
+<img width="1705" alt="image" src="https://user-images.githubusercontent.com/29910365/201527913-c0978908-f2f6-4e81-a8b9-a57c46794814.png">
 
 ## Usage
 
