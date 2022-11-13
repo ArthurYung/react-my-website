@@ -3,6 +3,7 @@ import glitch from '../images/glitch.png'
 import mail from '../images/mail.png'
 import smile from '../images/smile.png'
 import ox from '../images/ox.png'
+import asciiflow from '../images/asciiflow.png';
 
 import sup from '../images/sup.png'
 import readme from '../images/readme.png'
@@ -24,7 +25,7 @@ import blog from '../images/blogs.png'
 // about
 import imail from '../images/mymail.png'
 import igit from '../images/mygit.png'
-import icode from '../images/mycode.png'
+import icode from '../images/wechat.jpeg'
 import iadd from '../images/myadd.png'
 import icity from '../images/citybg.png'
 import emjz from '../images/emoji/zzz.png'
@@ -64,7 +65,8 @@ const homeIcon = {
   readme,
   msg,
   setting,
-  ox
+  ox,
+  asciiflow
 }
 
 const homeImg = { 

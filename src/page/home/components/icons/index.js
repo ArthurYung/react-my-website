@@ -92,12 +92,18 @@ export default class MyIcon extends Component{
         close = {this.close.bind(this)} 
         other = {this.props}
         {...fig}/>)}
-        <div  className='figure-flex'>
+        <div className='figure-flex'>
           <figure onClick={() => window.open('https://ox.bruceau.com')}>
             <img src={homeIcon.ox} alt=""/>
             <figcaption>跨端</figcaption>
           </figure>
-      </div>
+        </div>
+        <div className='figure-flex'>
+          <figure onClick={() => window.open('https://arthuryung.github.io/asciiflow/')}>
+            <img src={homeIcon.asciiflow} alt=""/>
+            <figcaption>Ascii<br/>Flow</figcaption>
+          </figure>
+        </div>
       </div>
     )
   }
