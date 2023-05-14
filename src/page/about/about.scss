@@ -182,6 +182,32 @@
   }
 }
 
+.permission {
+  &ModalContent {
+    width: 80vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &Btn {
+      border: none;
+      margin: none;
+      padding: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+      background-color: #fff;
+      width: 16rem;
+      height: 52px;
+      border-radius: 36px;
+      font-weight: bold;
+      color: #f95f56;
+    }
+  }
+}
+
 // 自适应规则
 
 @media screen and (max-width: 960px) {
