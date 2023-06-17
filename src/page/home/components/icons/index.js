@@ -104,6 +104,12 @@ export default class MyIcon extends Component{
             <figcaption>Ascii<br/>Flow</figcaption>
           </figure>
         </div>
+        <div className='figure-flex'>
+          <figure onClick={() => window.open('https://someone.ink/')}>
+            <img src={homeIcon.someone} alt=""/>
+            <figcaption>Someone</figcaption>
+          </figure>
+        </div>
       </div>
     )
   }

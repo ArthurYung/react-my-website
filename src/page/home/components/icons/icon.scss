@@ -5,6 +5,8 @@
   right: -14px;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap-reverse;
+  height: 80vh;
 }
 
 
@@ -14,5 +16,6 @@
       flex-wrap: wrap;
       top: 1rem;
       left: -1rem;
+      height: auto;
   }
 }

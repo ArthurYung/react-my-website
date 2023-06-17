@@ -4,6 +4,7 @@ import mail from '../images/mail.png'
 import smile from '../images/smile.png'
 import ox from '../images/ox.png'
 import asciiflow from '../images/asciiflow.png';
+import someone from '../images/someone.png';
 
 import sup from '../images/sup.png'
 import readme from '../images/readme.png'
@@ -66,7 +67,8 @@ const homeIcon = {
   msg,
   setting,
   ox,
-  asciiflow
+  asciiflow,
+  someone
 }
 
 const homeImg = { 
