@@ -59,6 +59,7 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
+    "install-module": "./vercel-submodule-workaround.sh && yarn --ignore-scripts --production=false",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
