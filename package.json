@@ -69,7 +69,7 @@
     "fsevents": "^2.3.3",
     "node-sass": "^6.x"
   },
-  "homepage": "https://cdn.bruceau.com/",
+  "homepage": "https://bruceau.plus/",
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,mjs}"

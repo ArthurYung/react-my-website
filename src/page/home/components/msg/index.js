@@ -35,6 +35,7 @@ export default class Msgs extends Component{
       onReset: true
     })
   this.restTimeout =  setTimeout(()=>{
+    // 测试构建
     axios.get('m/showMsg/', {
       params: {
         msgId: 1
