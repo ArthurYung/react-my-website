@@ -17,6 +17,9 @@ jobs:
         with:
           node-version: 14
 
+      - name: Install sub module
+        run: npm run install-module
+
       - name: Install Dependencies
         run: npm install
 
