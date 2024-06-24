@@ -26,12 +26,34 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v20
+      - name: Save Build Artifacts
+        uses: actions/upload-artifact@v2
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          github-token: ${{ secrets.ACTION_TOKEN }} # Optional
-          vercel-args: '--prod' # Optional
-          vercel-org-id: ${{ secrets.ORG_ID }}  # Required
-          vercel-project-id: ${{ secrets.PROJECT_ID }} # Required
-          working-directory: ./build # Your Working Directory, Optional
+          name: build-artifacts
+          path: |
+            build/**/*
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Download Build Artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: build-artifacts
+        path: build
+
+    - name: Deploy to Vercel
+      uses: amondnet/vercel-action@v20
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
+        github-token: ${{ secrets.ACTION_TOKEN }} # Optional
+        vercel-args: '--prod' # Optional
+        vercel-org-id: ${{ secrets.ORG_ID }}  # Required
+        vercel-project-id: ${{ secrets.PROJECT_ID }} # Required
+        working-directory: ./build # Your Working Directory, Optional
