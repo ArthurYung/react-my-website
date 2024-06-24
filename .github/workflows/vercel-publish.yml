@@ -1,7 +1,4 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
-
-name: Node.js Package
+name: Build and Deploy to Vercel
 
 on:
   push:
@@ -12,23 +9,26 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.author.name, 'GitHub Action')"
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 14
-          token: ${{ secrets.ACTION_TOKEN }}
 
-      - name: Install
-      - env:
-        GITHUB_ACCESS_TOKEN: ${{ secrets.ACTION_TOKEN }}
-      - run: npm run install-module
-      - run: yarn install
-      - run: npm run build
-      - uses: amondnet/vercel-action@v25
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
-          github-token: ${{ secrets.ACTION_TOKEN }} #Optional 
-          vercel-args: '--prod' #Optional
-          vercel-org-id: ${{ secrets.ORG_ID}}  #Required
-          vercel-project-id: ${{ secrets.PROJECT_ID}} #Required 
-          working-directory: ./build #Your Working Directory, Optional
+          github-token: ${{ secrets.ACTION_TOKEN }} # Optional
+          vercel-args: '--prod' # Optional
+          vercel-org-id: ${{ secrets.ORG_ID }}  # Required
+          vercel-project-id: ${{ secrets.PROJECT_ID }} # Required
+          working-directory: ./build # Your Working Directory, Optional
