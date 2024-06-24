@@ -47,8 +47,8 @@ export default class HomeFooter extends Component {
           </li>
           <li>WWW.BRUCEAU.COM</li>
           <li>
-            <a target="_blank" href="http://www.miitbeian.gov.cn/">
-              粤ICP备17162184号-2
+            <a target="_blank" href="/">
+              FREEDOM!
             </a>
           </li>
         </ul>
