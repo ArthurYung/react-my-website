@@ -9,10 +9,10 @@ import {mylabel} from '../about.scss'
 const labels = [
                  '#金牛座',
                  '#90后',
-                 '#前端新秀',
+                 '[腾讯]',
                  '#闷骚',
                  '[周大福]',
-                 '#伪文艺',
+                 '#CDCer',
                 ]
 
 export default ()=>{
